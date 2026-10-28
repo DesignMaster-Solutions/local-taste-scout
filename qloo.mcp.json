@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "qloo": {
+      "command": "qloo",
+      "args": ["mcp"],
+      "env": { "QLOO_BASE_URL": "https://hackathon.api.qloo.com", "QLOO_TRUSTED_BASE_URL": "https://hackathon.api.qloo.com" }
+    }
+  }
+}

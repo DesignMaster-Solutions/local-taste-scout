@@ -1,0 +1,10 @@
+{
+  "name": "local-taste-scout",
+  "version": "0.1.0",
+  "description": "Agent that turns a local business into a cited partnership and outreach brief using Qloo taste data.",
+  "type": "module",
+  "bin": { "local-taste-scout": "src/cli.mjs" },
+  "scripts": { "test": "node --test test/", "demo": "node src/cli.mjs --business \"Rosa's Taqueria\" --concept tacos --city \"Austin, TX\" --replay" },
+  "engines": { "node": ">=22.19" },
+  "license": "MIT"
+}

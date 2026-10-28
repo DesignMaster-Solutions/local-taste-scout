@@ -1,0 +1,75 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import { pickTag, scout, toBrief, assertNoPersonalData } from '../src/scout.mjs';
+import { makeRunner } from '../src/qloo.mjs';
+
+const env = (operation, results, n = 1) => ({ operation, status: results.length ? 'ok' : 'empty', results, execution: { correlation_id: `c-${operation}-${n}` } });
+
+function fakeRun() {
+  const calls = [];
+  const run = async (op, input) => {
+    calls.push({ op, input });
+    if (op === 'find_tags') return env(op, [
+      { name: 'Tacos', id: 'urn:tag:genre:music:tacos', type: 'urn:tag:genre:music' },
+      { name: 'Tacos', id: 'urn:tag:category:place:tacos', type: 'urn:tag:category:place' },
+    ]);
+    if (op === 'recommend' && input.target_type === 'place') return env(op, [
+      { name: "Rosa's Taqueria" }, { name: 'Cosmic Coffee', explanation: 'shared audience' }, { name: 'Vinyl Bar' },
+    ], 2);
+    if (op === 'recommend') return env(op, [{ name: 'Khruangbin' }], 3);
+    if (op === 'where_popular') return env(op, [{ name: 'East Austin' }], 4);
+    throw new Error(`unexpected ${op}`);
+  };
+  return { run, calls };
+}
+
+test('pickTag prefers the place-scoped tag among same-name tags', () => {
+  const r = pickTag([{ name: 'Jazz', type: 'urn:tag:genre:music' }, { name: 'Jazz', type: 'urn:tag:category:place' }], 'jazz');
+  assert.equal(r.tag.type, 'urn:tag:category:place');
+  assert.equal(r.ambiguous, false);
+});
+
+test('pickTag flags ties instead of guessing silently', () => {
+  const r = pickTag([{ name: 'Jazz', id: 'a' }, { name: 'Jazz', id: 'b' }], 'jazz');
+  assert.equal(r.ambiguous, true);
+});
+
+test('scout chains tag → partners → culture → areas, drops the business itself, cites every step', async () => {
+  const { run, calls } = fakeRun();
+  const r = await scout({ business: "Rosa's Taqueria", concept: 'tacos', city: 'Austin, TX' }, run);
+  assert.deepEqual(calls.map((c) => c.op), ['find_tags', 'recommend', 'recommend', 'where_popular']);
+  assert.equal(calls[1].input.signal_tags[0], 'urn:tag:category:place:tacos');
+  assert.equal(calls[3].input.entity, 'Cosmic Coffee');
+  assert.ok(!r.partners.some((p) => p.name === "Rosa's Taqueria"));
+  const brief = toBrief(r);
+  assert.match(brief, /c-recommend-2/);
+  assert.match(brief, /does not establish/);
+});
+
+test('scout stops with needs_input when no tag resolves', async () => {
+  const r = await scout({ business: 'X', concept: 'zzz', city: 'Austin, TX' }, async (op) => env(op, []));
+  assert.equal(r.status, 'needs_input');
+  assert.equal(r.trace.length, 1);
+});
+
+test('personal data never reaches Qloo', async () => {
+  assert.throws(() => assertNoPersonalData({ business: 'call me at +1 512 555 0100' }));
+  await assert.rejects(scout({ business: 'a@b.com', concept: 'tacos', city: 'Austin' }, async () => assert.fail('called')));
+});
+
+test('record then replay returns the same response without calling Qloo', async () => {
+  const dir = await mkdtemp(path.join(tmpdir(), 'lts-'));
+  const rec = makeRunner({ mode: 'record', fixturesDir: dir, exec: async (op) => env(op, [{ name: 'A' }]) });
+  const first = await rec('find_tags', { query: 'tacos', limit: 5 });
+  const rep = makeRunner({ mode: 'replay', fixturesDir: dir, exec: async () => assert.fail('live call in replay') });
+  assert.deepEqual(await rep('find_tags', { query: 'tacos', limit: 5 }), first);
+  await assert.rejects(rep('find_tags', { query: 'other' }), /No recorded response/);
+});
+
+test('harness errors surface instead of falling back', async () => {
+  const run = makeRunner({ exec: async () => ({ error: { code: 'QLOO_AUTH', recovery: 'set key' } }) });
+  await assert.rejects(run('find_tags', { query: 'x' }), /QLOO_AUTH/);
+});

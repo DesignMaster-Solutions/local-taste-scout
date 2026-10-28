@@ -44,6 +44,8 @@ status, result count, correlation id).
 
 ## Live demo
 
+Demo video (2:32): **https://youtu.be/3UAzmSCGW0A** (also in `docs/demo.mp4`).
+
 **https://web-production-95a5c.up.railway.app**: type a business, what it sells and a city for a live run
 (rate limited per visitor), or open one of the three recorded cases (instant, no Qloo call). The page runs the
 same agent as the CLI (`src/server.mjs`, `public/index.html`); `npm start` runs it locally.

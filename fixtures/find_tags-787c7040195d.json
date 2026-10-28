@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "find_tags",
+  "status": "ok",
+  "interpretation": {
+    "query": "tacos",
+    "semantic": true
+  },
+  "results": [
+    {
+      "id": "urn:tag:cuisine:qloo:tacos",
+      "name": "Tacos",
+      "type": "urn:tag:cuisine:qloo",
+      "popularity": 0.9996249585490836
+    },
+    {
+      "id": "urn:tag:cuisine:qloo:taco",
+      "name": "Taco",
+      "type": "urn:tag:cuisine:qloo",
+      "popularity": 0.9940640559802185
+    },
+    {
+      "id": "urn:tag:popular_food_item:qloo:tacos",
+      "name": "Tacos",
+      "type": "urn:tag:popular_food_item:qloo",
+      "popularity": 0.9981641426442472
+    },
+    {
+      "id": "urn:tag:specialty_dish:place:tacos",
+      "name": "Tacos",
+      "type": "urn:tag:specialty_dish:place",
+      "popularity": 0.9965441992044252
+    },
+    {
+      "id": "urn:tag:specialty_dish:place:taco",
+      "name": "Taco",
+      "type": "urn:tag:specialty_dish:place",
+      "popularity": 0.9965195367927837
+    },
+    {
+      "id": "urn:tag:popular_food_item:qloo:tex_mex_tacos",
+      "name": "Tex-Mex Tacos",
+      "type": "urn:tag:popular_food_item:qloo",
+      "popularity": 0.9712638135031574
+    },
+    {
+      "id": "urn:tag:specialty_dish:place:tacos_mexicanos",
+      "name": "Tacos Mexicanos",
+      "type": "urn:tag:specialty_dish:place",
+      "popularity": 0.949456272366019
+    },
+    {
+      "id": "urn:tag:cuisine:qloo:mexican_tacos",
+      "name": "Mexican Tacos",
+      "type": "urn:tag:cuisine:qloo",
+      "popularity": 0.9230074852775613
+    },
+    {
+      "id": "urn:tag:popular_food_item:qloo:taco",
+      "name": "Taco",
+      "type": "urn:tag:popular_food_item:qloo",
+      "popularity": 0.9051605389475245
+    },
+    {
+      "id": "urn:tag:specialty_dish:place:mexican_tacos",
+      "name": "Mexican Tacos",
+      "type": "urn:tag:specialty_dish:place",
+      "popularity": 0.9211131921439066
+    },
+    {
+      "id": "urn:tag:specialty_dish:place:tacos_tex_mex",
+      "name": "Tacos Tex Mex",
+      "type": "urn:tag:specialty_dish:place",
+      "popularity": 0.8681876388987738
+    },
+    {
+      "id": "urn:tag:specialty_dish:place:mexican_style_tacos",
+      "name": "Mexican Style Tacos",
+      "type": "urn:tag:specialty_dish:place",
+      "popularity": 0.8465793784852347
+    },
+    {
+      "id": "urn:tag:cuisine:qloo:mexican_style_tacos",
+      "name": "Mexican-Style Tacos",
+      "type": "urn:tag:cuisine:qloo",
+      "popularity": 0.8150671783672007
+    },
+    {
+      "id": "urn:tag:cuisine:qloo:mexican_inspired_tacos",
+      "name": "Mexican-Inspired Tacos",
+      "type": "urn:tag:cuisine:qloo",
+      "popularity": 0.8150671783672007
+    },
+    {
+      "id": "urn:tag:specialty_dish:place:the_tacos",
+      "name": "The Tacos",
+      "type": "urn:tag:specialty_dish:place",
+      "popularity": 0.7936954707402478
+    }
+  ],
+  "result_count": 15,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/tags",
+    "documentation": "https://docs.qloo.com/reference/get-tags",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/tags",
+        "query": {
+          "filter.query": "tacos",
+          "feature.semantic_search": true,
+          "take": 15
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "find_tags",
+    "job": "find_tags",
+    "signals": {},
+    "filters": {},
+    "operators": {},
+    "output": {
+      "limit": 15
+    },
+    "assumptions": [
+      "semantic=true"
+    ],
+    "unresolved": [],
+    "target": {
+      "concept": "tacos"
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-433d2a5c-edee-4b37-8511-93f3301fd0c5",
+    "duration_ms": 1678
+  }
+}

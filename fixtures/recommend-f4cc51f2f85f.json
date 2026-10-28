@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "recommend",
+  "status": "ok",
+  "interpretation": {
+    "target_type": "urn:entity:artist",
+    "signals": [],
+    "signal_tags": [
+      {
+        "input": "urn:tag:specialty_dish:place:tacos",
+        "tagId": "urn:tag:specialty_dish:place:tacos",
+        "name": "urn:tag:specialty_dish:place:tacos",
+        "match": "identifier"
+      }
+    ],
+    "signal_tags_operator": "intersection",
+    "signal_location": "Austin, TX",
+    "include_tags": [],
+    "exclude_tags": []
+  },
+  "resolution": {
+    "contract_version": "1.0-preview.1",
+    "provider": {
+      "contract_version": "1.0-preview.1",
+      "provider_id": "qloo_api",
+      "name": "Qloo native resolution",
+      "entity_strategy": "exact_name_context_or_choice",
+      "tag_strategy": "target_scoped_semantic_search_exact_name_or_choice",
+      "remote": true,
+      "uses_model": false,
+      "fallback": "none"
+    },
+    "outcomes": [
+      {
+        "input": "urn:tag:specialty_dish:place:tacos",
+        "status": "resolved",
+        "match": "identifier",
+        "selected": {
+          "id": "urn:tag:specialty_dish:place:tacos",
+          "name": "urn:tag:specialty_dish:place:tacos"
+        },
+        "provenance": {
+          "contract_version": "1.0-preview.1",
+          "provider_id": "qloo_api",
+          "provider_name": "Qloo native resolution",
+          "endpoint": "local:tag-urn",
+          "strategy": "supplied_identifier",
+          "remote": true,
+          "uses_model": false
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "entity_id": "0D32D9DD-23FB-4C37-AE20-422AAAB40C86",
+      "name": "Travis Barker",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9794316759399433,
+      "affinity": 0.9921908897820091,
+      "properties": {
+        "description": "Travis Barker is an American musician, best known as the drummer for the rock band Blink-182. He is also a prolific producer and collaborator in the hip hop and pop punk scenes, known for his energetic drumming style and genre-crossing work. Barker has contributed to numerous albums and projects across various genres, blending punk rock with hip hop and electronic music influences.",
+        "image": {
+          "url": "https://images.qloo.com/i/0D32D9DD-23FB-4C37-AE20-422AAAB40C86-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "A8852BB2-62FB-4D99-BDC1-3173B370A1B5",
+      "name": "3LAU",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9733696400133692,
+      "affinity": 0.9910489906411667,
+      "properties": {
+        "description": "3LAU, born Justin Blau, is an American DJ and electronic music producer who gained prominence in the EDM scene with his progressive house and electro house productions. He is known for blending melodic elements with energetic beats and has released numerous singles and remixes that have charted internationally. 3LAU is also recognized for his innovative approach to music distribution, including releasing music as NFTs.",
+        "image": {
+          "url": "https://images.qloo.com/i/A8852BB2-62FB-4D99-BDC1-3173B370A1B5-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "2DC5EB76-F3A4-485F-8099-7AFF67375F2E",
+      "name": "Christine and the Queens",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9888458538951038,
+      "affinity": 0.99035519168156,
+      "properties": {
+        "description": "Christine and the Queens is the musical project of French singer-songwriter Héloïse Letissier, who blends synthpop, electropop, and art pop with theatrical performance. Known for her androgynous style and exploration of gender identity, her music combines catchy melodies with introspective and poetic lyrics. She gained international acclaim with her debut album 'Chaleur Humaine' and is recognized for her innovative approach to pop music and performance art.",
+        "image": {
+          "url": "https://images.qloo.com/i/2DC5EB76-F3A4-485F-8099-7AFF67375F2E-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "D85F1A84-9EC8-4DF1-94A9-AF9DDEF34C42",
+      "name": "Violet Chachki",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.8819901827785751,
+      "affinity": 0.9902850441753966,
+      "properties": {
+        "description": "Violet Chachki is an American drag queen, burlesque performer, model, and recording artist, best known for winning the seventh season of RuPaul's Drag Race. She is celebrated for her high-fashion aesthetic, vintage-inspired burlesque performances, and avant-garde style that blends glamour with edgy, provocative elements.",
+        "image": {
+          "url": "https://images.qloo.com/i/D85F1A84-9EC8-4DF1-94A9-AF9DDEF34C42-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "9F88A4A1-CD95-4B72-BCBA-2F830869FD83",
+      "name": "MK",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9541087496477466,
+      "affinity": 0.9895673441313687,
+      "properties": {
+        "description": "MK is a stage name shared by more than one electronic music producer. The most widely known MK is Marc Kinchen, an American house DJ/producer and remixer who rose to prominence in the early 1990s with club chart hits such as \"Always\" and \"Love Changes\" (credited as MK featuring Alana) and releases under aliases including 4th Measure Men. Marc Kinchen is also noted for high-profile remixes (Celine Dion, Betty Boo, Jody Watley, Sofia Shinas) and production/collaboration work (including projects with John Reid as part of The Nightcrawlers). A separate Japanese producer, Masakazu Kageyama, is active in the doujin trance scene (often credited as MK in that context) and is associated with Shiki, Saitama. Sources and artist pages sometimes conflate these identities; this profile summarizes both usages and emphasizes the Marc Kinchen identity when discussing 1990s house and club impact.",
+        "image": {
+          "url": "https://images.qloo.com/i/9F88A4A1-CD95-4B72-BCBA-2F830869FD83-420x-auto.jpg"
+        }
+      }
+    }
+  ],
+  "result_count": 5,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/insights",
+    "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/insights",
+        "query": {
+          "filter.type": "urn:entity:artist",
+          "take": 5,
+          "signal.interests.tags": [
+            "urn:tag:specialty_dish:place:tacos"
+          ],
+          "operator.signal.interests.tags": "intersection",
+          "signal.location.query": "Austin, TX",
+          "feature.explainability": true
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "recommend",
+    "job": "recommend",
+    "signals": {
+      "tags": [
+        "urn:tag:specialty_dish:place:tacos"
+      ],
+      "location": "Austin, TX"
+    },
+    "filters": {},
+    "operators": {
+      "signalTags": "intersection"
+    },
+    "output": {
+      "limit": 5,
+      "explain": true
+    },
+    "assumptions": [
+      "explain=true"
+    ],
+    "unresolved": [],
+    "target": {
+      "type": "artist"
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-6184dd42-59d3-4ab7-bb05-fd974a1ba356",
+    "duration_ms": 1581
+  }
+}

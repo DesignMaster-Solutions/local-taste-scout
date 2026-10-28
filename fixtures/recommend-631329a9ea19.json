@@ -1,0 +1,327 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "recommend",
+  "status": "ok",
+  "interpretation": {
+    "target_type": "urn:entity:place",
+    "signals": [],
+    "signal_tags": [
+      {
+        "input": "urn:tag:specialty_dish:place:tacos",
+        "tagId": "urn:tag:specialty_dish:place:tacos",
+        "name": "urn:tag:specialty_dish:place:tacos",
+        "match": "identifier"
+      }
+    ],
+    "signal_tags_operator": "intersection",
+    "filter_location": "Austin, TX",
+    "include_tags": [],
+    "exclude_tags": []
+  },
+  "resolution": {
+    "contract_version": "1.0-preview.1",
+    "provider": {
+      "contract_version": "1.0-preview.1",
+      "provider_id": "qloo_api",
+      "name": "Qloo native resolution",
+      "entity_strategy": "exact_name_context_or_choice",
+      "tag_strategy": "target_scoped_semantic_search_exact_name_or_choice",
+      "remote": true,
+      "uses_model": false,
+      "fallback": "none"
+    },
+    "outcomes": [
+      {
+        "input": "urn:tag:specialty_dish:place:tacos",
+        "status": "resolved",
+        "match": "identifier",
+        "selected": {
+          "id": "urn:tag:specialty_dish:place:tacos",
+          "name": "urn:tag:specialty_dish:place:tacos"
+        },
+        "provenance": {
+          "contract_version": "1.0-preview.1",
+          "provider_id": "qloo_api",
+          "provider_name": "Qloo native resolution",
+          "endpoint": "local:tag-urn",
+          "strategy": "supplied_identifier",
+          "remote": true,
+          "uses_model": false
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "entity_id": "E6B9C5CA-8F75-43D1-922D-EC86C54D28E1",
+      "name": "1886 Cafe & Bakery",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.9221502090746224,
+      "affinity": 0.9593602667201068,
+      "properties": {
+        "description": "Victorian tearoom-style cafe in the historic Driskill Hotel offering baked goods and daytime American fare, noted for breakfast and elegant atmosphere.",
+        "short_description": "Victorian tearoom-style cafe in the historic Driskill Hotel offering baked goods and daytime American fare, noted for breakfast and elegant atmosphere.",
+        "image": {
+          "url": "https://images.qloo.com/i/E6B9C5CA-8F75-43D1-922D-EC86C54D28E1-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Austin",
+          "name": "Downtown",
+          "metro": "Austin",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Texas",
+          "admin2_region": "Travis County"
+        },
+        "address": "604 Brazos St Austin, TX 78701",
+        "price_level": 1,
+        "business_rating": 4.400000095367432
+      }
+    },
+    {
+      "entity_id": "B8B85A06-E895-4E36-A8CF-AF4FBB7848C7",
+      "name": "W Austin",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.9979603291258389,
+      "affinity": 0.9501426524139754,
+      "properties": {
+        "description": "Hip high-rise hotel in downtown Austin with modern rooms, a spa, pool, tequila bar, and vibrant music scene nearby.",
+        "short_description": "Hip high-rise hotel in downtown Austin with modern rooms, a spa, pool, tequila bar, and vibrant music scene nearby.",
+        "image": {
+          "url": "https://images.qloo.com/i/B8B85A06-E895-4E36-A8CF-AF4FBB7848C7-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Austin",
+          "name": "Downtown",
+          "metro": "Austin",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Texas",
+          "admin2_region": "Travis County"
+        },
+        "address": "200 Lavaca St Austin, TX 78701",
+        "price_level": null,
+        "business_rating": 4.599999904632568
+      }
+    },
+    {
+      "entity_id": "097CA543-3111-4258-A314-C73E08701B59",
+      "name": "Hotel ZaZa Austin Downtown",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.9821999620370855,
+      "affinity": 0.9450962708209435,
+      "properties": {
+        "description": "Elegant boutique hotel in Austin's Warehouse District with chic rooms, rooftop pool, spa, and hip dining venues.",
+        "short_description": "Elegant boutique hotel in Austin's Warehouse District with chic rooms, rooftop pool, spa, and hip dining venues.",
+        "image": {
+          "url": "https://images.qloo.com/i/097CA543-3111-4258-A314-C73E08701B59-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Austin",
+          "name": "Downtown",
+          "metro": "Austin",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Texas",
+          "admin2_region": "Travis County"
+        },
+        "address": "400 Lavaca St Austin, TX 78701",
+        "price_level": null,
+        "business_rating": 4.599999904632568
+      }
+    },
+    {
+      "entity_id": "D51E1DB2-53BC-4DA7-884C-5E6528163708",
+      "name": "Hotel San José",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.9968089978793515,
+      "affinity": 0.9447895856793331,
+      "properties": {
+        "description": "Hip boutique hotel in a revamped 1930s motor lodge with minimalist rooms, lush courtyard, pool, and vibrant bar near South Congress attractions.",
+        "short_description": "Hip boutique hotel in a revamped 1930s motor lodge with minimalist rooms, lush courtyard, pool, and vibrant bar near South Congress attractions.",
+        "image": {
+          "url": "https://images.qloo.com/i/D51E1DB2-53BC-4DA7-884C-5E6528163708-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Austin",
+          "name": null,
+          "metro": "Austin",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Texas",
+          "admin2_region": "Travis County"
+        },
+        "address": "1316 S Congress Ave Austin, TX 78704",
+        "price_level": null,
+        "business_rating": 4.599999904632568
+      }
+    },
+    {
+      "entity_id": "82DCE2AD-4C18-4379-A01A-9238634006A0",
+      "name": "Il Brutto",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.9317276729216326,
+      "affinity": 0.9420001744574811,
+      "properties": {
+        "description": "Wood-fired pizzas and classic Italian pastas with an extensive wine and cocktail selection in East Austin.",
+        "short_description": "Wood-fired pizzas and classic Italian pastas with an extensive wine and cocktail selection in East Austin.",
+        "image": {
+          "url": "https://images.qloo.com/i/82DCE2AD-4C18-4379-A01A-9238634006A0-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Austin",
+          "name": "East Cesar Chavez",
+          "metro": "Austin",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Texas",
+          "admin2_region": "Travis County"
+        },
+        "address": "1601 E 6th St Austin, TX 78702",
+        "price_level": 2,
+        "business_rating": 4.5
+      }
+    },
+    {
+      "entity_id": "3E54AD58-69D2-4766-905E-53CFA58E83F5",
+      "name": "Willow Country Bar",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.9697327477683787,
+      "affinity": 0.9396643392744745,
+      "properties": {
+        "description": "Energetic downtown bar and restaurant offering cocktails, dancing, a full food menu, beer and wine, with extensive takeout and delivery options.",
+        "short_description": "Energetic downtown bar and restaurant offering cocktails, dancing, a full food menu, beer and wine, with extensive takeout and delivery options.",
+        "image": {
+          "url": "https://images.qloo.com/i/3E54AD58-69D2-4766-905E-53CFA58E83F5-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Austin",
+          "name": "Downtown",
+          "metro": "Austin",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Texas",
+          "admin2_region": "Travis County"
+        },
+        "address": "719 W 6th St Austin, TX 78701",
+        "price_level": 1,
+        "business_rating": 3.799999952316284
+      }
+    },
+    {
+      "entity_id": "286E611A-1D23-43A4-BBBF-EB411FEA1465",
+      "name": "Saxon Pub",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.9898750084042166,
+      "affinity": 0.9388193873190962,
+      "properties": {
+        "description": "Intimate live-music listening room and neighborhood bar offering affordable shows, free weekday happy-hour performances, and a welcoming atmosphere.",
+        "short_description": "Intimate live-music listening room and neighborhood bar offering affordable shows, free weekday happy-hour performances, and a welcoming atmosphere.",
+        "image": {
+          "url": "https://images.qloo.com/i/286E611A-1D23-43A4-BBBF-EB411FEA1465-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Austin",
+          "name": "Zilker",
+          "metro": "Austin",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Texas",
+          "admin2_region": "Travis County"
+        },
+        "address": "1320 S Lamar Blvd Austin, TX 78704",
+        "price_level": 1,
+        "business_rating": 4.5
+      }
+    },
+    {
+      "entity_id": "4EA5874D-E4B7-4115-9E75-CFE556F22836",
+      "name": "Torchy's Tacos",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.9951233256107405,
+      "affinity": 0.9358622336232666,
+      "properties": {
+        "description": "Buzzy Austin chain serving inventive Mexican street-food–style tacos, including breakfast tacos, with cocktails and late-night service.",
+        "short_description": "Buzzy Austin chain serving inventive Mexican street-food–style tacos, including breakfast tacos, with cocktails and late-night service.",
+        "image": {
+          "url": "https://images.qloo.com/i/4EA5874D-E4B7-4115-9E75-CFE556F22836-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Austin",
+          "name": null,
+          "metro": "Austin",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Texas",
+          "admin2_region": "Travis County"
+        },
+        "address": "1822 S Congress Ave Austin, TX 78704",
+        "price_level": 1,
+        "business_rating": 4.5
+      }
+    }
+  ],
+  "result_count": 8,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/insights",
+    "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/insights",
+        "query": {
+          "filter.type": "urn:entity:place",
+          "take": 8,
+          "signal.interests.tags": [
+            "urn:tag:specialty_dish:place:tacos"
+          ],
+          "operator.signal.interests.tags": "intersection",
+          "filter.location.query": "Austin, TX",
+          "feature.explainability": true
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "recommend",
+    "job": "recommend",
+    "signals": {
+      "tags": [
+        "urn:tag:specialty_dish:place:tacos"
+      ]
+    },
+    "filters": {
+      "location": "Austin, TX"
+    },
+    "operators": {
+      "signalTags": "intersection"
+    },
+    "output": {
+      "limit": 8,
+      "explain": true
+    },
+    "assumptions": [],
+    "unresolved": [],
+    "target": {
+      "type": "place"
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-1050eed2-d127-4849-9358-a8e6d4d62c9d",
+    "duration_ms": 2031
+  }
+}

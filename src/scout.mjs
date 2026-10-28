@@ -24,7 +24,8 @@ export function pickTag(results, concept) {
     const blob = `${t.type ?? ''} ${t.subtype ?? ''} ${t.id ?? ''}`.toLowerCase();
     const name = words(t.name);
     const overlap = name.filter((w) => want.has(w)).length / Math.max(name.length, 1);
-    return (/place|restaurant|cuisine|category/.test(blob) ? 2 : 0) + overlap;
+    // A place-scoped tag drives place recommendations best; venue-ish tags (cuisine, amenity) are a step down.
+    return (/:place\b|restaurant/.test(blob) ? 3 : /cuisine|category|amenity|activity_type/.test(blob) ? 2 : 0) + overlap;
   };
   const ranked = tags.map((t) => ({ t, s: score(t) })).sort((a, b) => b.s - a.s);
   const [best, second] = ranked;
@@ -51,13 +52,13 @@ export async function scout({ business, concept, city, audience }, run) {
     return res;
   };
 
-  const tagsRes = await step('Resolve the business concept to a Qloo tag', 'find_tags', { query: concept, limit: 5 });
+  const tagsRes = await step('Resolve the business concept to a Qloo tag', 'find_tags', { query: concept, limit: 15 });
   const choice = pickTag(items(tagsRes), concept);
   if (!choice.tag) return { business, city, choice, trace, partners: [], culture: [], areas: [], status: 'needs_input' };
   const tagRef = choice.tag.id ?? choice.tag.name;
 
   const partnersRes = await step('Venues nearby that share the same taste audience (partner candidates)', 'recommend', {
-    target_type: 'place', signal_tags: [tagRef], filter_location: city, ...(audience ? { demographic: audience } : {}), explain: true, limit: 8,
+    target_type: 'place', signal_tags: [tagRef], filter_location: city, ...(audience ? { demographic: audience, signal_location: city } : {}), explain: true, limit: 8,
   });
   // Direct competitors carry the same tag; partners are adjacent, not identical.
   const partners = items(partnersRes).filter((p) => !words(p.name).some((w) => words(business).includes(w) && w.length > 3));
@@ -66,12 +67,12 @@ export async function scout({ business, concept, city, audience }, run) {
     target_type: 'artist', signal_tags: [tagRef], signal_location: city, limit: 5,
   });
 
-  // Ask "where" about the strongest partner, the only entity Qloo surely knows by name.
+  // Ask "where" about the strongest partner by Qloo id: names like "Thai Food Near Me" are ambiguous worldwide.
   let areas = [];
   let areasRes = null;
   if (partners[0]?.name) {
     areasRes = await step(`Where in ${city} the top partner's audience concentrates (flyers, local ads)`, 'where_popular', {
-      entity: partners[0].name, entity_type: 'place', within: city, limit: 5,
+      entity: partners[0].entity_id ?? partners[0].name, entity_type: 'place', within: city, limit: 5,
     });
     areas = items(areasRes);
   }
@@ -84,6 +85,13 @@ export async function scout({ business, concept, city, audience }, run) {
 }
 
 const line = (e) => `- **${e.name ?? e.id}**${e.properties?.address ? ` (${e.properties.address})` : ''}${e.explanation ? `: ${e.explanation}` : ''}`;
+// where_popular returns coordinates (no neighborhood names): show them with a map link.
+const area = (a) => {
+  const { latitude: la, longitude: lo } = a.location ?? {};
+  if (la == null) return line(a);
+  const pop = a.query?.popularity != null ? `, popularity ${Math.round(a.query.popularity * 100)}%` : '';
+  return `- **${la.toFixed(4)}, ${lo.toFixed(4)}** (geohash ${a.location.geohash}${pop}): https://www.google.com/maps?q=${la},${lo}`;
+};
 const src = (s) => (s ? `_Source: Qloo \`${s.operation}\`, correlation ${s.correlation_id ?? 'n/a'}._` : '');
 
 export function toBrief(r) {
@@ -93,7 +101,7 @@ export function toBrief(r) {
   if (r.status !== 'ok') return [...out, '', 'Refine the concept and run again; no recommendation was made from an uncertain tag.'].join('\n');
   out.push('', '## 1. Partner candidates (cross-promotion, bundles, co-hosted nights)', ...r.partners.map(line), src(r.sources.partners));
   out.push('', '## 2. Culture hooks for events and content', ...r.culture.map(line), src(r.sources.culture));
-  out.push('', '## 3. Areas to focus flyers and local ads', ...(r.areas.length ? r.areas.map(line) : ['- No area signal returned.']), src(r.sources.areas));
+  out.push('', '## 3. Areas to focus flyers and local ads', ...(r.areas.length ? r.areas.map(area) : ['- No area signal returned.']), src(r.sources.areas));
   out.push('', '## What this does not establish',
     '- Qloo describes what groups tend to like, not what any one customer will do.',
     '- Partners are taste-adjacent, not verified as open to a deal: call them before printing anything.',

@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "recommend",
+  "status": "ok",
+  "interpretation": {
+    "target_type": "urn:entity:artist",
+    "signals": [],
+    "signal_tags": [
+      {
+        "input": "urn:tag:category:place:record_store",
+        "tagId": "urn:tag:category:place:record_store",
+        "name": "urn:tag:category:place:record_store",
+        "match": "identifier"
+      }
+    ],
+    "signal_tags_operator": "intersection",
+    "signal_location": "Portland, OR",
+    "include_tags": [],
+    "exclude_tags": []
+  },
+  "resolution": {
+    "contract_version": "1.0-preview.1",
+    "provider": {
+      "contract_version": "1.0-preview.1",
+      "provider_id": "qloo_api",
+      "name": "Qloo native resolution",
+      "entity_strategy": "exact_name_context_or_choice",
+      "tag_strategy": "target_scoped_semantic_search_exact_name_or_choice",
+      "remote": true,
+      "uses_model": false,
+      "fallback": "none"
+    },
+    "outcomes": [
+      {
+        "input": "urn:tag:category:place:record_store",
+        "status": "resolved",
+        "match": "identifier",
+        "selected": {
+          "id": "urn:tag:category:place:record_store",
+          "name": "urn:tag:category:place:record_store"
+        },
+        "provenance": {
+          "contract_version": "1.0-preview.1",
+          "provider_id": "qloo_api",
+          "provider_name": "Qloo native resolution",
+          "endpoint": "local:tag-urn",
+          "strategy": "supplied_identifier",
+          "remote": true,
+          "uses_model": false
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "entity_id": "2D1676A1-EC6D-482C-A778-4B2BAAD2D92E",
+      "name": "Lizzo",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9938167233548946,
+      "affinity": 0.8877343577498428,
+      "properties": {
+        "description": "Lizzo, born Melissa Viviane Jefferson, is an American singer, rapper, songwriter, and flutist. She blends elements of pop, hip hop, R&B, and soul in her music, often incorporating funk and dance influences. Lizzo is celebrated for her powerful vocals, charismatic stage presence, and messages of body positivity and self-love. She rose to mainstream fame with hits like \"Truth Hurts\" and \"Good as Hell,\" and is known for her energetic performances and flute playing.",
+        "image": {
+          "url": "https://images.qloo.com/i/2D1676A1-EC6D-482C-A778-4B2BAAD2D92E-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "47FA29CA-A1E6-4EA6-8219-D75190AA6BD1",
+      "name": "Dolly Parton",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9963660552202321,
+      "affinity": 0.8877209195146759,
+      "properties": {
+        "description": "Dolly Parton is a prolific American country music singer-songwriter, actress, entrepreneur, and philanthropist. With a career spanning six decades, she is celebrated for her prolific songwriting, distinctive high, clear voice, and her crossover success into pop and film. Beyond music, she built a major entertainment business (Dollywood), runs a global childhood literacy program (Imagination Library), and is widely regarded as one of country music's most influential cultural figures.",
+        "image": {
+          "url": "https://images.qloo.com/i/47FA29CA-A1E6-4EA6-8219-D75190AA6BD1-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "9D57054A-FAF4-440F-A713-AFADEAD6D452",
+      "name": "Portugal. The Man",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9979880594276127,
+      "affinity": 0.887707716904368,
+      "properties": {
+        "description": "Portugal. The Man is an American rock band formed in Wasilla, Alaska, in 2004. The band is known for their eclectic and experimental approach to rock music, blending elements of alternative rock, indie rock, and psychedelic rock with pop sensibilities. They gained mainstream success with their 2017 hit single \"Feel It Still,\" which showcased their ability to combine catchy melodies with innovative production. The band consists of John Gourley (vocals, guitar), Zach Carothers (bass), Eric Howk (guitar), Jason Sechrist (drums), and Kyle O'Quin (keyboards). Their music often features rich instrumentation and thoughtful lyrics.",
+        "image": {
+          "url": "https://images.qloo.com/i/9D57054A-FAF4-440F-A713-AFADEAD6D452-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "5032D31E-1B79-4A40-901D-DCDDFA0F4493",
+      "name": "Janelle Monáe",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9972081866975995,
+      "affinity": 0.8876987579147886,
+      "properties": {
+        "description": "Janelle Monáe is an American multi-disciplinary artist whose work spans R&B, soul, funk and art-pop. She rose to prominence with her Afrofuturist alter-ego Cindi Mayweather and cinematic concept albums that blend theatrical storytelling, social commentary and eclectic production. Monáe is also known for her acting in acclaimed films and for outspoken advocacy on race, gender and LGBTQ+ issues.",
+        "image": {
+          "url": "https://images.qloo.com/i/5032D31E-1B79-4A40-901D-DCDDFA0F4493-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "AFBC71A7-9439-4AB0-AB68-D14B11AAF836",
+      "name": "Phoebe Bridgers",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9942197668246073,
+      "affinity": 0.8876942783971257,
+      "properties": {
+        "description": "Phoebe Bridgers is an American singer-songwriter celebrated for intimate, literate songs that blend indie rock and folk. She first gained attention with early EPs and her 2017 debut album 'Stranger in the Alps', established herself as a distinctive voice with melancholic, image-rich lyrics and sparse-but-layered arrangements, and expanded her profile through acclaimed side projects (boygenius, Better Oblivion Community Center) and her 2020 album 'Punisher'. Her work is noted for its candid exploration of grief, relationships and existential anxiety, delivered with a breathy, emotive vocal style and frequent use of close harmonies and cinematic production.",
+        "image": {
+          "url": "https://images.qloo.com/i/AFBC71A7-9439-4AB0-AB68-D14B11AAF836-420x-auto.jpg"
+        }
+      }
+    }
+  ],
+  "result_count": 5,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/insights",
+    "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/insights",
+        "query": {
+          "filter.type": "urn:entity:artist",
+          "take": 5,
+          "signal.interests.tags": [
+            "urn:tag:category:place:record_store"
+          ],
+          "operator.signal.interests.tags": "intersection",
+          "signal.location.query": "Portland, OR",
+          "feature.explainability": true
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "recommend",
+    "job": "recommend",
+    "signals": {
+      "tags": [
+        "urn:tag:category:place:record_store"
+      ],
+      "location": "Portland, OR"
+    },
+    "filters": {},
+    "operators": {
+      "signalTags": "intersection"
+    },
+    "output": {
+      "limit": 5,
+      "explain": true
+    },
+    "assumptions": [
+      "explain=true"
+    ],
+    "unresolved": [],
+    "target": {
+      "type": "artist"
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-a91ef867-776f-4a0c-b175-fdd517ec2396",
+    "duration_ms": 1145
+  }
+}

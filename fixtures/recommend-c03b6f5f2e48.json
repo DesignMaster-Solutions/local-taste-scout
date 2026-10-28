@@ -1,0 +1,327 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "recommend",
+  "status": "ok",
+  "interpretation": {
+    "target_type": "urn:entity:place",
+    "signals": [],
+    "signal_tags": [
+      {
+        "input": "urn:tag:category:place:record_store",
+        "tagId": "urn:tag:category:place:record_store",
+        "name": "urn:tag:category:place:record_store",
+        "match": "identifier"
+      }
+    ],
+    "signal_tags_operator": "intersection",
+    "filter_location": "Portland, OR",
+    "include_tags": [],
+    "exclude_tags": []
+  },
+  "resolution": {
+    "contract_version": "1.0-preview.1",
+    "provider": {
+      "contract_version": "1.0-preview.1",
+      "provider_id": "qloo_api",
+      "name": "Qloo native resolution",
+      "entity_strategy": "exact_name_context_or_choice",
+      "tag_strategy": "target_scoped_semantic_search_exact_name_or_choice",
+      "remote": true,
+      "uses_model": false,
+      "fallback": "none"
+    },
+    "outcomes": [
+      {
+        "input": "urn:tag:category:place:record_store",
+        "status": "resolved",
+        "match": "identifier",
+        "selected": {
+          "id": "urn:tag:category:place:record_store",
+          "name": "urn:tag:category:place:record_store"
+        },
+        "provenance": {
+          "contract_version": "1.0-preview.1",
+          "provider_id": "qloo_api",
+          "provider_name": "Qloo native resolution",
+          "endpoint": "local:tag-urn",
+          "strategy": "supplied_identifier",
+          "remote": true,
+          "uses_model": false
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "entity_id": "000542AA-6E72-44D9-8D6F-F7411D1FA554",
+      "name": "Birrieria Carlos",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.49558857561436215,
+      "affinity": 0.7649962877984056,
+      "properties": {
+        "description": "Mexican taqueria specializing in birria tacos, quesabirrias and mulitas served with rich consommé and other traditional dishes.",
+        "short_description": "Mexican taqueria specializing in birria tacos, quesabirrias and mulitas served with rich consommé and other traditional dishes.",
+        "image": {
+          "url": "https://images.qloo.com/i/000542AA-6E72-44D9-8D6F-F7411D1FA554-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Lents",
+          "name": null,
+          "metro": null,
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Oregon",
+          "admin2_region": "Clackamas County"
+        },
+        "address": "9691 SE 82nd Ave Happy Valley, OR 97086",
+        "price_level": 1,
+        "business_rating": 4.5
+      }
+    },
+    {
+      "entity_id": "018B93B8-2EF1-4D35-A4BD-273F31D447E1",
+      "name": "Chimney Park",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.9295316186131204,
+      "affinity": 0.7649962877984056,
+      "properties": {
+        "description": "Small North Portland park along the Columbia Slough offering grassy open space, a riverside trail, picnic spots, and scenic views of the river corridor.",
+        "short_description": "Small North Portland park along the Columbia Slough offering grassy open space, a riverside trail, picnic spots, and scenic views of the river corridor.",
+        "image": {
+          "url": "https://images.qloo.com/i/018B93B8-2EF1-4D35-A4BD-273F31D447E1-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Portland",
+          "name": "Saint Johns",
+          "metro": "Portland",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Oregon",
+          "admin2_region": "Multnomah County"
+        },
+        "address": "9360 N Columbia Blvd Portland, OR 97203",
+        "price_level": null,
+        "business_rating": 4.599999904632568
+      }
+    },
+    {
+      "entity_id": "001211E7-689B-4F94-B84F-DBF1F5F71ECB",
+      "name": "Subway",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.21343590006467067,
+      "affinity": 0.7649962877984056,
+      "properties": {
+        "description": "Casual counter-serve sandwich chain offering build-your-own sandwiches, salads, and health-conscious options with dine-in, takeout, delivery, and catering.",
+        "short_description": "Casual counter-serve sandwich chain offering build-your-own sandwiches, salads, and health-conscious options with dine-in, takeout, delivery, and catering.",
+        "image": {
+          "url": "https://images.qloo.com/i/001211E7-689B-4F94-B84F-DBF1F5F71ECB-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Portland",
+          "name": "South Portland",
+          "metro": "Portland",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Oregon",
+          "admin2_region": "Multnomah County"
+        },
+        "address": "3626 S Bond Ave Portland, OR 97239",
+        "price_level": 1,
+        "business_rating": 3.4000000953674316
+      }
+    },
+    {
+      "entity_id": "0018D05A-B210-43AF-96AF-C3A5368081C6",
+      "name": "Lucky Spot",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.26003352028768606,
+      "affinity": 0.7649962877984056,
+      "properties": {
+        "description": "Inexpensive neighborhood deli in SE Portland offering casual sandwiches, quick takeout, curbside pickup and delivery.",
+        "short_description": "Inexpensive neighborhood deli in SE Portland offering casual sandwiches, quick takeout, curbside pickup and delivery.",
+        "image": {
+          "url": "https://images.qloo.com/i/0018D05A-B210-43AF-96AF-C3A5368081C6-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Portland",
+          "name": "Glenfair",
+          "metro": "Portland",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Oregon",
+          "admin2_region": "Multnomah County"
+        },
+        "address": "14919 SE Stark St #112 Portland, OR 97233",
+        "price_level": 1,
+        "business_rating": 3.9000000953674316
+      }
+    },
+    {
+      "entity_id": "002F51B6-B9C4-4AAA-AE2A-944ACA4C7388",
+      "name": "Sub Shop",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.20680371947412077,
+      "affinity": 0.7649962877984056,
+      "properties": {
+        "description": "Unassuming counter-serve sandwich shop offering inexpensive comfort sandwiches, including a popular beef teriyaki sub.",
+        "short_description": "Unassuming counter-serve sandwich shop offering inexpensive comfort sandwiches, including a popular beef teriyaki sub.",
+        "image": {
+          "url": "https://images.qloo.com/i/002F51B6-B9C4-4AAA-AE2A-944ACA4C7388-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Portland",
+          "name": "Cully",
+          "metro": "Portland",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Oregon",
+          "admin2_region": "Multnomah County"
+        },
+        "address": "4331 NE Killingsworth St Portland, OR 97218",
+        "price_level": 1,
+        "business_rating": 4.599999904632568
+      }
+    },
+    {
+      "entity_id": "0050820B-AB19-49C1-817F-EE50BF144597",
+      "name": "Mill Ends Park",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.9670287258910419,
+      "affinity": 0.7649962877984056,
+      "properties": {
+        "description": "Tiny circular park on a downtown median, famous as the Guinness-recognized world's smallest park and home to whimsical leprechaun lore.",
+        "short_description": "Tiny circular park on a downtown median, famous as the Guinness-recognized world's smallest park and home to whimsical leprechaun lore.",
+        "image": {
+          "url": "https://images.qloo.com/i/0050820B-AB19-49C1-817F-EE50BF144597-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Portland",
+          "name": "Downtown",
+          "metro": "Portland",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Oregon",
+          "admin2_region": "Multnomah County"
+        },
+        "address": "SW Naito Parkway and 56 SW Taylor St Portland, OR 97204",
+        "price_level": null,
+        "business_rating": 4.5
+      }
+    },
+    {
+      "entity_id": "00541BB3-A5F3-48B1-BCD6-35D9C0DE467E",
+      "name": "Rose City Coffee Co.",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0,
+      "affinity": 0.7649962877984056,
+      "properties": {
+        "description": "Bright brick-walled cafe serving coffee, sandwiches, and prepared foods with free Wi‑Fi and a spacious, casual atmosphere.",
+        "short_description": "Bright brick-walled cafe serving coffee, sandwiches, and prepared foods with free Wi‑Fi and a spacious, casual atmosphere.",
+        "image": {
+          "url": "https://images.qloo.com/i/00541BB3-A5F3-48B1-BCD6-35D9C0DE467E-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Portland",
+          "name": "Brooklyn",
+          "metro": "Portland",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Oregon",
+          "admin2_region": "Multnomah County"
+        },
+        "address": "3370 SE Milwaukie Ave Portland, OR 97202",
+        "price_level": 1,
+        "business_rating": 4.699999809265137
+      }
+    },
+    {
+      "entity_id": "007FE417-A0EF-4FA1-B39D-C844A3E89B73",
+      "name": "Dollar Tree",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.5538033305585489,
+      "affinity": 0.7649962877984056,
+      "properties": {
+        "description": "Discount variety store offering household goods, beauty products, food, toys, and party and school supplies for value-oriented shoppers.",
+        "short_description": "Discount variety store offering household goods, beauty products, food, toys, and party and school supplies for value-oriented shoppers.",
+        "image": {
+          "url": "https://images.qloo.com/i/007FE417-A0EF-4FA1-B39D-C844A3E89B73-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Portland",
+          "name": "Lents",
+          "metro": "Portland",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Oregon",
+          "admin2_region": "Multnomah County"
+        },
+        "address": "4420 SE 82nd Ave Bldg K-1 Portland, OR 97266",
+        "price_level": 1,
+        "business_rating": 3.9000000953674316
+      }
+    }
+  ],
+  "result_count": 8,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/insights",
+    "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/insights",
+        "query": {
+          "filter.type": "urn:entity:place",
+          "take": 8,
+          "signal.interests.tags": [
+            "urn:tag:category:place:record_store"
+          ],
+          "operator.signal.interests.tags": "intersection",
+          "filter.location.query": "Portland, OR",
+          "feature.explainability": true
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "recommend",
+    "job": "recommend",
+    "signals": {
+      "tags": [
+        "urn:tag:category:place:record_store"
+      ]
+    },
+    "filters": {
+      "location": "Portland, OR"
+    },
+    "operators": {
+      "signalTags": "intersection"
+    },
+    "output": {
+      "limit": 8,
+      "explain": true
+    },
+    "assumptions": [],
+    "unresolved": [],
+    "target": {
+      "type": "place"
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-e663161b-631f-4171-bf5e-3fa224c45fde",
+    "duration_ms": 2382
+  }
+}

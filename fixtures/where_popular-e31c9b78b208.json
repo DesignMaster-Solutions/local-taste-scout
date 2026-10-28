@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "where_popular",
+  "status": "ok",
+  "interpretation": {
+    "entity": {
+      "input": "E6B9C5CA-8F75-43D1-922D-EC86C54D28E1",
+      "entityId": "E6B9C5CA-8F75-43D1-922D-EC86C54D28E1",
+      "name": "1886 Cafe & Bakery",
+      "type": "urn:entity:place",
+      "match": "identifier"
+    },
+    "within": "Austin, TX"
+  },
+  "resolution": {
+    "contract_version": "1.0-preview.1",
+    "provider": {
+      "contract_version": "1.0-preview.1",
+      "provider_id": "qloo_api",
+      "name": "Qloo native resolution",
+      "entity_strategy": "exact_name_context_or_choice",
+      "tag_strategy": "target_scoped_semantic_search_exact_name_or_choice",
+      "remote": true,
+      "uses_model": false,
+      "fallback": "none"
+    },
+    "outcomes": [
+      {
+        "input": "E6B9C5CA-8F75-43D1-922D-EC86C54D28E1",
+        "status": "resolved",
+        "match": "identifier",
+        "selected": {
+          "id": "E6B9C5CA-8F75-43D1-922D-EC86C54D28E1",
+          "name": "1886 Cafe & Bakery",
+          "type": "urn:entity:place",
+          "popularity": 0.9221502090746224,
+          "description": "Victorian tearoom-style cafe in the historic Driskill Hotel offering baked goods and daytime American fare, noted for breakfast and elegant atmosphere.",
+          "address": "604 Brazos St Austin, TX 78701"
+        },
+        "provenance": {
+          "contract_version": "1.0-preview.1",
+          "provider_id": "qloo_api",
+          "provider_name": "Qloo native resolution",
+          "endpoint": "/entities",
+          "strategy": "identifier_lookup",
+          "remote": true,
+          "uses_model": false
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "location": {
+        "latitude": 30.26802,
+        "longitude": -97.74193,
+        "geohash": "9v6kpy4"
+      },
+      "query": {
+        "affinity": 1,
+        "affinity_rank": 0.99776,
+        "popularity": 1,
+        "entity_place_affinity_rank": 0.99776,
+        "entity_place_affinity": 1
+      }
+    },
+    {
+      "location": {
+        "latitude": 30.26802,
+        "longitude": -97.74742,
+        "geohash": "9v6kpwn"
+      },
+      "query": {
+        "affinity": 0.997979797979798,
+        "affinity_rank": 0.98688,
+        "popularity": 0.997979797979798,
+        "entity_place_affinity_rank": 0.98688,
+        "entity_place_affinity": 0.997979797979798
+      }
+    },
+    {
+      "location": {
+        "latitude": 30.266647,
+        "longitude": -97.73918,
+        "geohash": "9v6kpvu"
+      },
+      "query": {
+        "affinity": 0.9959595959595959,
+        "affinity_rank": 0.983702,
+        "popularity": 0.9959595959595959,
+        "entity_place_affinity_rank": 0.983702,
+        "entity_place_affinity": 0.9959595959595959
+      }
+    },
+    {
+      "location": {
+        "latitude": 30.273514,
+        "longitude": -97.740555,
+        "geohash": "9v6kpz5"
+      },
+      "query": {
+        "affinity": 0.9939393939393939,
+        "affinity_rank": 0.975215,
+        "popularity": 0.9878787878787879,
+        "entity_place_affinity_rank": 0.975215,
+        "entity_place_affinity": 0.9939393939393939
+      }
+    },
+    {
+      "location": {
+        "latitude": 30.248795,
+        "longitude": -97.75017,
+        "geohash": "9v6kpds"
+      },
+      "query": {
+        "affinity": 0.9919191919191919,
+        "affinity_rank": 0.971718,
+        "popularity": 0.9858585858585859,
+        "entity_place_affinity_rank": 0.971718,
+        "entity_place_affinity": 0.9919191919191919
+      }
+    }
+  ],
+  "result_count": 5,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/insights",
+    "documentation": "https://docs.qloo.com/reference/heatmaps-use-case",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/insights",
+        "query": {
+          "filter.type": "urn:heatmap",
+          "signal.interests.entities": "E6B9C5CA-8F75-43D1-922D-EC86C54D28E1",
+          "filter.location.query": "Austin, TX",
+          "take": 5
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "where_popular",
+    "job": "where_popular",
+    "signals": {},
+    "filters": {
+      "location": "Austin, TX"
+    },
+    "operators": {},
+    "output": {
+      "limit": 5
+    },
+    "assumptions": [],
+    "unresolved": [],
+    "target": {
+      "type": "place",
+      "entities": [
+        "E6B9C5CA-8F75-43D1-922D-EC86C54D28E1"
+      ]
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-adff4899-fa69-40b7-a580-58258391a48f",
+    "duration_ms": 1450
+  }
+}

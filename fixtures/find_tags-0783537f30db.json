@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "find_tags",
+  "status": "ok",
+  "interpretation": {
+    "query": "record store",
+    "semantic": true
+  },
+  "results": [
+    {
+      "id": "urn:tag:category:place:record_store",
+      "name": "Record store",
+      "type": "urn:tag:category:place",
+      "popularity": 0.9996028095042336
+    },
+    {
+      "id": "urn:tag:genre:place:record_store",
+      "name": "Record store",
+      "type": "urn:tag:genre:place",
+      "popularity": 0.9996028095042336
+    },
+    {
+      "id": "urn:tag:amenity:qloo:vinyl_record_store",
+      "name": "Vinyl Record Store",
+      "type": "urn:tag:amenity:qloo",
+      "popularity": 0.9708298650180656
+    },
+    {
+      "id": "urn:tag:amenity:qloo:record_store",
+      "name": "Record Store",
+      "type": "urn:tag:amenity:qloo",
+      "popularity": 0.982594070999156
+    },
+    {
+      "id": "urn:tag:setting:qloo:record_store",
+      "name": "Record Store",
+      "type": "urn:tag:setting:qloo",
+      "popularity": 0.9803211234498221
+    },
+    {
+      "id": "urn:tag:keyword:media:record_store",
+      "name": "record store",
+      "type": "urn:tag:keyword:media",
+      "popularity": 0.9881737042045424
+    },
+    {
+      "id": "urn:tag:amenity:qloo:record_shop",
+      "name": "Record Shop",
+      "type": "urn:tag:amenity:qloo",
+      "popularity": 0.9859391265704812
+    },
+    {
+      "id": "urn:tag:amenity:qloo:vinyl_record_shop",
+      "name": "Vinyl Record Shop",
+      "type": "urn:tag:amenity:qloo",
+      "popularity": 0.9630681956524095
+    },
+    {
+      "id": "urn:tag:setting:qloo:record_shop",
+      "name": "Record Shop",
+      "type": "urn:tag:setting:qloo",
+      "popularity": 0.9742337490808539
+    },
+    {
+      "id": "urn:tag:genre:place:music_store",
+      "name": "Music store",
+      "type": "urn:tag:genre:place",
+      "popularity": 0.9998224934703516
+    },
+    {
+      "id": "urn:tag:keyword:qloo:record_store",
+      "name": "Record Store",
+      "type": "urn:tag:keyword:qloo",
+      "popularity": 0.9650979789877225
+    },
+    {
+      "id": "urn:tag:amenity:qloo:music_store",
+      "name": "Music Store",
+      "type": "urn:tag:amenity:qloo",
+      "popularity": 0.974722598921797
+    },
+    {
+      "id": "urn:tag:keyword:media:record_shop",
+      "name": "record shop",
+      "type": "urn:tag:keyword:media",
+      "popularity": 0.9562328057164354
+    },
+    {
+      "id": "urn:tag:amenity:qloo:vinyl_store",
+      "name": "Vinyl Store",
+      "type": "urn:tag:amenity:qloo",
+      "popularity": 0.9521575133251639
+    },
+    {
+      "id": "urn:tag:amenity:qloo:vinyl_record_retail",
+      "name": "Vinyl Record Retail",
+      "type": "urn:tag:amenity:qloo",
+      "popularity": 0.8556060567741283
+    }
+  ],
+  "result_count": 15,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/tags",
+    "documentation": "https://docs.qloo.com/reference/get-tags",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/tags",
+        "query": {
+          "filter.query": "record store",
+          "feature.semantic_search": true,
+          "take": 15
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "find_tags",
+    "job": "find_tags",
+    "signals": {},
+    "filters": {},
+    "operators": {},
+    "output": {
+      "limit": 15
+    },
+    "assumptions": [
+      "semantic=true"
+    ],
+    "unresolved": [],
+    "target": {
+      "concept": "record store"
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-f9958cbd-214f-4fe9-8826-b26d0b2bf172",
+    "duration_ms": 893
+  }
+}

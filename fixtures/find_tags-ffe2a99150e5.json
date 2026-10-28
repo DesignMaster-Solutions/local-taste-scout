@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "find_tags",
+  "status": "ok",
+  "interpretation": {
+    "query": "yoga",
+    "semantic": true
+  },
+  "results": [
+    {
+      "id": "urn:tag:activity_type:qloo:yoga",
+      "name": "Yoga",
+      "type": "urn:tag:activity_type:qloo",
+      "popularity": 0.9991708245869478
+    },
+    {
+      "id": "urn:tag:amenity:qloo:yoga",
+      "name": "Yoga",
+      "type": "urn:tag:amenity:qloo",
+      "popularity": 0.9993352144836531
+    },
+    {
+      "id": "urn:tag:hobby:qloo:yoga",
+      "name": "Yoga",
+      "type": "urn:tag:hobby:qloo",
+      "popularity": 0.9809585761023116
+    },
+    {
+      "id": "urn:tag:lifestyle:qloo:yoga",
+      "name": "Yoga",
+      "type": "urn:tag:lifestyle:qloo",
+      "popularity": 0.9859239678270201
+    },
+    {
+      "id": "urn:tag:lifestyle:qloo:yoga_practice",
+      "name": "Yoga Practice",
+      "type": "urn:tag:lifestyle:qloo",
+      "popularity": 0.9916987422012977
+    },
+    {
+      "id": "urn:tag:interests:qloo:yoga",
+      "name": "Yoga",
+      "type": "urn:tag:interests:qloo",
+      "popularity": 0.9990157812729983
+    },
+    {
+      "id": "urn:tag:subgenre:qloo:yoga",
+      "name": "Yoga",
+      "type": "urn:tag:subgenre:qloo",
+      "popularity": 0.9886377756201222
+    },
+    {
+      "id": "urn:tag:activity_type:qloo:yoga_practice",
+      "name": "Yoga Practice",
+      "type": "urn:tag:activity_type:qloo",
+      "popularity": 0.9938567817626336
+    },
+    {
+      "id": "urn:tag:keyword:qloo:yoga",
+      "name": "Yoga",
+      "type": "urn:tag:keyword:qloo",
+      "popularity": 0.9949735567236773
+    },
+    {
+      "id": "urn:tag:hobby:qloo:yoga_practitioner",
+      "name": "yoga-practitioner",
+      "type": "urn:tag:hobby:qloo",
+      "popularity": 0.9785458225252016
+    },
+    {
+      "id": "urn:tag:keyword:media:yoga",
+      "name": "yoga",
+      "type": "urn:tag:keyword:media",
+      "popularity": 0.9948400426602851
+    },
+    {
+      "id": "urn:tag:genre:qloo:yoga",
+      "name": "Yoga",
+      "type": "urn:tag:genre:qloo",
+      "popularity": 0.9550515766428426
+    },
+    {
+      "id": "urn:tag:interests:qloo:yoga_practice",
+      "name": "Yoga Practice",
+      "type": "urn:tag:interests:qloo",
+      "popularity": 0.9800470879268384
+    },
+    {
+      "id": "urn:tag:product_service:qloo:yoga",
+      "name": "Yoga",
+      "type": "urn:tag:product_service:qloo",
+      "popularity": 0.9693792596658196
+    },
+    {
+      "id": "urn:tag:motif:qloo:yoga",
+      "name": "Yoga",
+      "type": "urn:tag:motif:qloo",
+      "popularity": 0.9537488672177328
+    }
+  ],
+  "result_count": 15,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/tags",
+    "documentation": "https://docs.qloo.com/reference/get-tags",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/tags",
+        "query": {
+          "filter.query": "yoga",
+          "feature.semantic_search": true,
+          "take": 15
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "find_tags",
+    "job": "find_tags",
+    "signals": {},
+    "filters": {},
+    "operators": {},
+    "output": {
+      "limit": 15
+    },
+    "assumptions": [
+      "semantic=true"
+    ],
+    "unresolved": [],
+    "target": {
+      "concept": "yoga"
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-5c656c43-0bf5-42ed-8cf0-1003df50dbb2",
+    "duration_ms": 573
+  }
+}

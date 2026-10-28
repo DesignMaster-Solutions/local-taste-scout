@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "where_popular",
+  "status": "ok",
+  "interpretation": {
+    "entity": {
+      "input": "000542AA-6E72-44D9-8D6F-F7411D1FA554",
+      "entityId": "000542AA-6E72-44D9-8D6F-F7411D1FA554",
+      "name": "Birrieria Carlos",
+      "type": "urn:entity:place",
+      "match": "identifier"
+    },
+    "within": "Portland, OR"
+  },
+  "resolution": {
+    "contract_version": "1.0-preview.1",
+    "provider": {
+      "contract_version": "1.0-preview.1",
+      "provider_id": "qloo_api",
+      "name": "Qloo native resolution",
+      "entity_strategy": "exact_name_context_or_choice",
+      "tag_strategy": "target_scoped_semantic_search_exact_name_or_choice",
+      "remote": true,
+      "uses_model": false,
+      "fallback": "none"
+    },
+    "outcomes": [
+      {
+        "input": "000542AA-6E72-44D9-8D6F-F7411D1FA554",
+        "status": "resolved",
+        "match": "identifier",
+        "selected": {
+          "id": "000542AA-6E72-44D9-8D6F-F7411D1FA554",
+          "name": "Birrieria Carlos",
+          "type": "urn:entity:place",
+          "popularity": 0.49558857561436215,
+          "description": "Mexican taqueria specializing in birria tacos, quesabirrias and mulitas served with rich consommé and other traditional dishes.",
+          "address": "9691 SE 82nd Ave Happy Valley, OR 97086"
+        },
+        "provenance": {
+          "contract_version": "1.0-preview.1",
+          "provider_id": "qloo_api",
+          "provider_name": "Qloo native resolution",
+          "endpoint": "/entities",
+          "strategy": "identifier_lookup",
+          "remote": true,
+          "uses_model": false
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "location": {
+        "latitude": 45.497818,
+        "longitude": -122.594376,
+        "geohash": "c20ff69"
+      },
+      "query": {
+        "affinity": 0.9826989619377162,
+        "affinity_rank": 1,
+        "popularity": 1,
+        "entity_place_affinity_rank": 1,
+        "entity_place_affinity": 0.9826989619377162
+      }
+    },
+    {
+      "location": {
+        "latitude": 45.52391,
+        "longitude": -122.57927,
+        "geohash": "c20ffxk"
+      },
+      "query": {
+        "affinity": 0.9826989619377162,
+        "affinity_rank": 1,
+        "popularity": 0.9965397923875432,
+        "entity_place_affinity_rank": 1,
+        "entity_place_affinity": 0.9826989619377162
+      }
+    },
+    {
+      "location": {
+        "latitude": 45.492325,
+        "longitude": -122.48726,
+        "geohash": "c20fu9x"
+      },
+      "query": {
+        "affinity": 0.9826989619377162,
+        "affinity_rank": 1,
+        "popularity": 0.9792387543252595,
+        "entity_place_affinity_rank": 1,
+        "entity_place_affinity": 0.9826989619377162
+      }
+    },
+    {
+      "location": {
+        "latitude": 45.576096,
+        "longitude": -122.66167,
+        "geohash": "c20g2bb"
+      },
+      "query": {
+        "affinity": 0.9826989619377162,
+        "affinity_rank": 1,
+        "popularity": 0.9757785467128027,
+        "entity_place_affinity_rank": 1,
+        "entity_place_affinity": 0.9826989619377162
+      }
+    },
+    {
+      "location": {
+        "latitude": 45.484085,
+        "longitude": -122.57927,
+        "geohash": "c20ff8h"
+      },
+      "query": {
+        "affinity": 0.9826989619377162,
+        "affinity_rank": 1,
+        "popularity": 0.7231833910034602,
+        "entity_place_affinity_rank": 1,
+        "entity_place_affinity": 0.9826989619377162
+      }
+    }
+  ],
+  "result_count": 5,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/insights",
+    "documentation": "https://docs.qloo.com/reference/heatmaps-use-case",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/insights",
+        "query": {
+          "filter.type": "urn:heatmap",
+          "signal.interests.entities": "000542AA-6E72-44D9-8D6F-F7411D1FA554",
+          "filter.location.query": "Portland, OR",
+          "take": 5
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "where_popular",
+    "job": "where_popular",
+    "signals": {},
+    "filters": {
+      "location": "Portland, OR"
+    },
+    "operators": {},
+    "output": {
+      "limit": 5
+    },
+    "assumptions": [],
+    "unresolved": [],
+    "target": {
+      "type": "place",
+      "entities": [
+        "000542AA-6E72-44D9-8D6F-F7411D1FA554"
+      ]
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-0e0c84f4-d6e3-4e68-b0ea-b1289e506765",
+    "duration_ms": 1331
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "recommend",
+  "status": "ok",
+  "interpretation": {
+    "target_type": "urn:entity:artist",
+    "signals": [],
+    "signal_tags": [
+      {
+        "input": "urn:tag:activity_type:qloo:yoga",
+        "tagId": "urn:tag:activity_type:qloo:yoga",
+        "name": "urn:tag:activity_type:qloo:yoga",
+        "match": "identifier"
+      }
+    ],
+    "signal_tags_operator": "intersection",
+    "signal_location": "Denver, CO",
+    "include_tags": [],
+    "exclude_tags": []
+  },
+  "resolution": {
+    "contract_version": "1.0-preview.1",
+    "provider": {
+      "contract_version": "1.0-preview.1",
+      "provider_id": "qloo_api",
+      "name": "Qloo native resolution",
+      "entity_strategy": "exact_name_context_or_choice",
+      "tag_strategy": "target_scoped_semantic_search_exact_name_or_choice",
+      "remote": true,
+      "uses_model": false,
+      "fallback": "none"
+    },
+    "outcomes": [
+      {
+        "input": "urn:tag:activity_type:qloo:yoga",
+        "status": "resolved",
+        "match": "identifier",
+        "selected": {
+          "id": "urn:tag:activity_type:qloo:yoga",
+          "name": "urn:tag:activity_type:qloo:yoga"
+        },
+        "provenance": {
+          "contract_version": "1.0-preview.1",
+          "provider_id": "qloo_api",
+          "provider_name": "Qloo native resolution",
+          "endpoint": "local:tag-urn",
+          "strategy": "supplied_identifier",
+          "remote": true,
+          "uses_model": false
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "entity_id": "2D1676A1-EC6D-482C-A778-4B2BAAD2D92E",
+      "name": "Lizzo",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9938167233548946,
+      "affinity": 0.8877298783533698,
+      "properties": {
+        "description": "Lizzo, born Melissa Viviane Jefferson, is an American singer, rapper, songwriter, and flutist. She blends elements of pop, hip hop, R&B, and soul in her music, often incorporating funk and dance influences. Lizzo is celebrated for her powerful vocals, charismatic stage presence, and messages of body positivity and self-love. She rose to mainstream fame with hits like \"Truth Hurts\" and \"Good as Hell,\" and is known for her energetic performances and flute playing.",
+        "image": {
+          "url": "https://images.qloo.com/i/2D1676A1-EC6D-482C-A778-4B2BAAD2D92E-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "9E5A9BEB-F58A-4FC0-8DF7-39ED6F1A2E0D",
+      "name": "GRiZ",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9742183250430896,
+      "affinity": 0.8877253989416475,
+      "properties": {
+        "description": "GRiZ (Grant Kwiecinski) is an American electronic music producer, multi-instrumentalist and DJ who blends saxophone and live instrumentation with electronic production. Emerging from Southfield, Michigan, he helped popularize an upbeat 'future funk' sound that mixes funk, soul, hip-hop, jazz elements and glitchy bass-driven electronic styles. He released his debut album End of the World Party in 2011 and built a large festival and touring following through high-energy live shows that often feature live saxophone, guest vocalists and extended improvisation.",
+        "image": {
+          "url": "https://images.qloo.com/i/9E5A9BEB-F58A-4FC0-8DF7-39ED6F1A2E0D-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "123AC682-7E5B-4060-AE5F-F7CD6DB40915",
+      "name": "Big Gigantic",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9759353557595895,
+      "affinity": 0.8877164400724549,
+      "properties": {
+        "description": "Big Gigantic is an American electronic music duo formed by Derek Vincent Smith and Dominic Lalli. They are known for their unique fusion of electronic music with live instrumentation, particularly saxophone and drums, creating a vibrant blend of future bass, trap, hip hop, and jazz influences. Their energetic performances and innovative sound have earned them a dedicated following in the electronic and festival scenes.",
+        "image": {
+          "url": "https://images.qloo.com/i/123AC682-7E5B-4060-AE5F-F7CD6DB40915-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "4FB4A28F-E177-4EEF-A6E8-2CE4BE8B0AFF",
+      "name": "Pretty Lights",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9962874125919955,
+      "affinity": 0.8877117248536428,
+      "properties": {
+        "description": "Pretty Lights is the stage name of American producer Derek Vincent Smith, an influential sample-based electronic artist who combines hip hop, soul and funk fragments with contemporary electronic production. Emerging from Colorado in the mid-2000s, Pretty Lights built a reputation for dense, nostalgic arrangements, improvisational live performances that often include live musicians, and a DIY distribution model (founding Pretty Lights Music and offering free downloads). Notable albums include Taking Up Your Precious Time, Filling Up The City Skies and A Color Map Of The Sun, the latter notable for incorporating live instrumentation and analog recording techniques.",
+        "image": {
+          "url": "https://images.qloo.com/i/4FB4A28F-E177-4EEF-A6E8-2CE4BE8B0AFF-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "5812BB0B-A8F3-4CCF-A960-5AF89A3FB3EC",
+      "name": "John Mayer",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9996985365917596,
+      "affinity": 0.8877027658913507,
+      "properties": {
+        "description": "John Mayer (born 1977 in Bridgeport, Connecticut) is an American singer-songwriter and guitarist who rose to fame in the early 2000s with melodic, guitar-forward pop-rock and a strong blues influence. He moved from the Connecticut suburbs to Austin and briefly attended Berklee College of Music before leaving to pursue a recording career. Mayer broke through with the album Room for Squares and later consolidated his reputation as a serious guitarist and songwriter with Continuum. He has released multiple platinum albums, won multiple Grammy Awards, fronted the John Mayer Trio and joined Dead & Company as a lead guitarist, blending mainstream pop songwriting with blues-based guitar work and extended live jams.",
+        "image": {
+          "url": "https://images.qloo.com/i/5812BB0B-A8F3-4CCF-A960-5AF89A3FB3EC-420x-auto.jpg"
+        }
+      }
+    }
+  ],
+  "result_count": 5,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/insights",
+    "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/insights",
+        "query": {
+          "filter.type": "urn:entity:artist",
+          "take": 5,
+          "signal.interests.tags": [
+            "urn:tag:activity_type:qloo:yoga"
+          ],
+          "operator.signal.interests.tags": "intersection",
+          "signal.location.query": "Denver, CO",
+          "feature.explainability": true
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "recommend",
+    "job": "recommend",
+    "signals": {
+      "tags": [
+        "urn:tag:activity_type:qloo:yoga"
+      ],
+      "location": "Denver, CO"
+    },
+    "filters": {},
+    "operators": {
+      "signalTags": "intersection"
+    },
+    "output": {
+      "limit": 5,
+      "explain": true
+    },
+    "assumptions": [
+      "explain=true"
+    ],
+    "unresolved": [],
+    "target": {
+      "type": "artist"
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-12d745ee-f361-494d-b206-79fe3f58f361",
+    "duration_ms": 1723
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "where_popular",
+  "status": "ok",
+  "interpretation": {
+    "entity": {
+      "input": "09CDBF51-6CCC-4AD3-92C5-DE275AE353E8",
+      "entityId": "09CDBF51-6CCC-4AD3-92C5-DE275AE353E8",
+      "name": "West Side Books",
+      "type": "urn:entity:place",
+      "match": "identifier"
+    },
+    "within": "Denver, CO"
+  },
+  "resolution": {
+    "contract_version": "1.0-preview.1",
+    "provider": {
+      "contract_version": "1.0-preview.1",
+      "provider_id": "qloo_api",
+      "name": "Qloo native resolution",
+      "entity_strategy": "exact_name_context_or_choice",
+      "tag_strategy": "target_scoped_semantic_search_exact_name_or_choice",
+      "remote": true,
+      "uses_model": false,
+      "fallback": "none"
+    },
+    "outcomes": [
+      {
+        "input": "09CDBF51-6CCC-4AD3-92C5-DE275AE353E8",
+        "status": "resolved",
+        "match": "identifier",
+        "selected": {
+          "id": "09CDBF51-6CCC-4AD3-92C5-DE275AE353E8",
+          "name": "West Side Books",
+          "type": "urn:entity:place",
+          "popularity": 0.8054980106615613,
+          "description": "Independent Denver shop offering new, used, rare and collectible books, custom searches, and community events.",
+          "address": "3434 W 32nd Ave Denver, CO 80211"
+        },
+        "provenance": {
+          "contract_version": "1.0-preview.1",
+          "provider_id": "qloo_api",
+          "provider_name": "Qloo native resolution",
+          "endpoint": "/entities",
+          "strategy": "identifier_lookup",
+          "remote": true,
+          "uses_model": false
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "location": {
+        "latitude": 39.76158,
+        "longitude": -105.03273,
+        "geohash": "9xj61ym"
+      },
+      "query": {
+        "affinity": 1,
+        "affinity_rank": 1,
+        "popularity": 1,
+        "entity_place_affinity_rank": 1,
+        "entity_place_affinity": 1
+      }
+    },
+    {
+      "location": {
+        "latitude": 39.73961,
+        "longitude": -104.98329,
+        "geohash": "9xj6543"
+      },
+      "query": {
+        "affinity": 0.9941860465116279,
+        "affinity_rank": 0.988856,
+        "popularity": 0.9941860465116279,
+        "entity_place_affinity_rank": 0.988856,
+        "entity_place_affinity": 0.9941860465116279
+      }
+    },
+    {
+      "location": {
+        "latitude": 39.838486,
+        "longitude": -104.671555,
+        "geohash": "9xjddhk"
+      },
+      "query": {
+        "affinity": 0.9883720930232558,
+        "affinity_rank": 0.975908,
+        "popularity": 0.9593023255813954,
+        "entity_place_affinity_rank": 0.975908,
+        "entity_place_affinity": 0.9883720930232558
+      }
+    },
+    {
+      "location": {
+        "latitude": 39.736862,
+        "longitude": -104.988785,
+        "geohash": "9xj64cv"
+      },
+      "query": {
+        "affinity": 0.9825581395348837,
+        "affinity_rank": 0.974396,
+        "popularity": 0.9883720930232558,
+        "entity_place_affinity_rank": 0.974396,
+        "entity_place_affinity": 0.9825581395348837
+      }
+    },
+    {
+      "location": {
+        "latitude": 39.75334,
+        "longitude": -104.99977,
+        "geohash": "9xj64sv"
+      },
+      "query": {
+        "affinity": 0.9767441860465116,
+        "affinity_rank": 0.971887,
+        "popularity": 0.9825581395348837,
+        "entity_place_affinity_rank": 0.971887,
+        "entity_place_affinity": 0.9767441860465116
+      }
+    }
+  ],
+  "result_count": 5,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/insights",
+    "documentation": "https://docs.qloo.com/reference/heatmaps-use-case",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/insights",
+        "query": {
+          "filter.type": "urn:heatmap",
+          "signal.interests.entities": "09CDBF51-6CCC-4AD3-92C5-DE275AE353E8",
+          "filter.location.query": "Denver, CO",
+          "take": 5
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "where_popular",
+    "job": "where_popular",
+    "signals": {},
+    "filters": {
+      "location": "Denver, CO"
+    },
+    "operators": {},
+    "output": {
+      "limit": 5
+    },
+    "assumptions": [],
+    "unresolved": [],
+    "target": {
+      "type": "place",
+      "entities": [
+        "09CDBF51-6CCC-4AD3-92C5-DE275AE353E8"
+      ]
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-6ce85b6d-bdb7-4c0e-aa39-24913a632c61",
+    "duration_ms": 1508
+  }
+}

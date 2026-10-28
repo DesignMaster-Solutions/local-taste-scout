@@ -42,6 +42,12 @@ status, result count, correlation id).
 - `qloo mcp` (`qloo.mcp.json`) so the same tools can be driven from an MCP client such as Claude
   Desktop: ask "find partners for my taqueria in Austin" and the model calls the same four workflows.
 
+## Live demo
+
+**https://web-production-95a5c.up.railway.app**: type a business, what it sells and a city for a live run
+(rate limited per visitor), or open one of the three recorded cases (instant, no Qloo call). The page runs the
+same agent as the CLI (`src/server.mjs`, `public/index.html`); `npm start` runs it locally.
+
 ## Setup (clean machine)
 
 ```sh

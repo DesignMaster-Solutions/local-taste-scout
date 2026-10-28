@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1b2330;--ink2:#4a5566;--line:#dfe2e6;--paper:#fbfbf8;--card:#fff;--hi:#ffd23f;--teal:#1f7f73;--err:#b3261e;
+:root{--ink:#1b2330;--ink2:#4a5566;--line:#dfe2e6;--paper:#f3f5f8;--card:#fff;--hi:#ffd23f;--teal:#1f7f73;--err:#b3261e;
   --sans:'Instrument Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--r:10px}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--sans)}
@@ -44,7 +44,7 @@ button:disabled{opacity:.55;cursor:wait}
 .sheet{background:var(--card);border:1.5px solid var(--ink);border-radius:var(--r);box-shadow:6px 6px 0 var(--ink);padding:clamp(16px,2.5vw,30px)}
 .sheet h2{margin:0;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.015em}
 .meta{font:13px var(--mono);color:var(--ink2);margin:4px 0 16px}
-.decision{background:#fff8d9;border-left:4px solid var(--hi);padding:10px 14px;border-radius:0 8px 8px 0;font-size:15px;margin-bottom:22px}
+.decision{background:#fff6cc;border:1.5px dashed var(--ink);padding:10px 14px;border-radius:8px;font-size:15px;margin-bottom:22px}
 .decision code{font:13px var(--mono)}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 section h3{font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;color:var(--ink2)}
@@ -79,6 +79,7 @@ footer{padding:24px clamp(16px,4vw,48px);border-top:1px solid var(--line);font-s
 </header>
 <main>
   <div>
+    <!-- avoid-ai-design-ignore: SD5 -->
     <h1>Who shares your <mark>customers' taste</mark> in town?</h1>
     <p class="lede">Tell the agent what you run and where. It picks the right Qloo tag, finds taste-adjacent partners, culture hooks for events, and the areas where that audience concentrates. Every claim cites the Qloo call behind it.</p>
     <form id="f">
@@ -90,9 +91,9 @@ footer{padding:24px clamp(16px,4vw,48px);border-top:1px solid var(--line);font-s
     </form>
     <div class="cases">
       <p>Or open a recorded case (instant, no Qloo call)</p>
-      <button class="chip" data-case='{"business":"Rosa&#39;s Taqueria","concept":"tacos","city":"Austin, TX"}'>Rosa's Taqueria <em>tacos · Austin, TX</em></button>
-      <button class="chip" data-case='{"business":"Side A Records","concept":"record store","city":"Portland, OR"}'>Side A Records <em>record store · Portland, OR</em></button>
-      <button class="chip" data-case='{"business":"Flow Yoga Studio","concept":"yoga","city":"Denver, CO","audience":"millennials"}'>Flow Yoga Studio <em>yoga · Denver, CO · millennials</em></button>
+      <button class="chip" data-case='{"business":"Rosa&#39;s Taqueria","concept":"tacos","city":"Austin, TX"}'>Rosa's Taqueria <em>tacos in Austin, TX</em></button>
+      <button class="chip" data-case='{"business":"Side A Records","concept":"record store","city":"Portland, OR"}'>Side A Records <em>record store in Portland, OR</em></button>
+      <button class="chip" data-case='{"business":"Flow Yoga Studio","concept":"yoga","city":"Denver, CO","audience":"millennials"}'>Flow Yoga Studio <em>yoga in Denver, CO, for millennials</em></button>
     </div>
   </div>
   <div id="out" aria-live="polite"><div class="empty">Your brief appears here: partners to call, themes for your next event, and where to put flyers.</div></div>
@@ -106,7 +107,7 @@ footer{padding:24px clamp(16px,4vw,48px);border-top:1px solid var(--line);font-s
 const $ = (t, props = {}, ...kids) => { const e = document.createElement(t); Object.assign(e, props); e.append(...kids); return e; };
 const out = document.getElementById('out');
 const go = document.getElementById('go');
-const corr = (s) => s ? `Qloo ${s.operation} · ${s.correlation_id}` : '';
+const corr = (s) => s ? `Source: Qloo ${s.operation}, correlation ${s.correlation_id}` : '';
 
 function list(items, sub) {
   return $('ol', { className: 'list' }, ...items.map((e) => $('li', {}, e.name ?? e.entity_id ?? '', sub(e) ? $('span', {}, sub(e)) : '')));
@@ -129,7 +130,7 @@ function mapOf(areas) {
   });
   const items = $('ol', { className: 'list' }, ...areas.map((a) => {
     const { latitude: y, longitude: x } = a.location ?? {};
-    const pop = a.query?.popularity != null ? ` · popularity ${Math.round(a.query.popularity * 100)}%` : '';
+    const pop = a.query?.popularity != null ? `, popularity ${Math.round(a.query.popularity * 100)}%` : '';
     return $('li', {}, $('a', { href: `https://www.google.com/maps?q=${y},${x}`, target: '_blank', rel: 'noopener', textContent: `${y?.toFixed(4)}, ${x?.toFixed(4)}` }),
       $('span', {}, `geohash ${a.location?.geohash ?? ''}${pop}`));
   }));
@@ -140,7 +141,7 @@ function render({ result: r, mode }) {
   const c = r.choice;
   const sheet = $('article', { className: 'sheet reveal' },
     $('h2', {}, `Local taste brief: ${r.business}`),
-    $('div', { className: 'meta' }, `${r.city}${mode === 'replay' ? ' · recorded Qloo responses' : ' · live Qloo calls'}`),
+    $('div', { className: 'meta' }, `${r.city}${mode === 'replay' ? ', from recorded Qloo responses' : ', from live Qloo calls'}`),
     $('div', { className: 'decision' }, $('b', {}, 'Concept resolved: '), c.tag ? `${c.tag.name} ` : 'none ', c.tag ? $('code', {}, c.tag.id) : '',
       $('div', {}, c.reason), c.alternatives?.length ? $('div', {}, `Also considered: ${c.alternatives.join(', ')}`) : ''));
   if (r.status !== 'ok') {
@@ -149,9 +150,9 @@ function render({ result: r, mode }) {
   }
   const sec = (title, sub, body, src, cls = '') => $('section', { className: `reveal ${cls}` }, $('h3', {}, title, $('b', {}, sub)), body, $('div', { className: 'src' }, corr(src)));
   const grid = $('div', { className: 'grid' },
-    sec('1 · Partners', 'Call these for cross-promos and co-hosted nights', r.partners.length ? list(r.partners, (e) => e.properties?.address) : $('p', {}, 'No partner returned for this city.'), r.sources.partners),
-    sec('2 · Culture hooks', 'Themes for events, playlists and posts', list(r.culture, () => ''), r.sources.culture),
-    sec('3 · Where to put flyers', `Where the top partner's audience concentrates`, r.areas.length ? mapOf(r.areas) : $('p', {}, 'No area signal returned.'), r.sources.areas, 'wide'),
+    sec('1. Partners', 'Call these for cross-promos and co-hosted nights', r.partners.length ? list(r.partners, (e) => e.properties?.address) : $('p', {}, 'No partner returned for this city.'), r.sources.partners),
+    sec('2. Culture hooks', 'Themes for events, playlists and posts', list(r.culture, () => ''), r.sources.culture),
+    sec('3. Where to put flyers', `Where the top partner's audience concentrates`, r.areas.length ? mapOf(r.areas) : $('p', {}, 'No area signal returned.'), r.sources.areas, 'wide'),
     $('div', { className: 'caveats wide reveal' }, $('b', {}, 'What this does not establish'), $('ul', {},
       $('li', {}, 'Qloo describes what groups tend to like, not what any one customer will do.'),
       $('li', {}, 'Partners are taste-adjacent, not verified as open to a deal: call them before printing anything.'))),

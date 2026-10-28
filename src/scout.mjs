@@ -68,19 +68,29 @@ export async function scout({ business, concept, city, audience }, run) {
   });
 
   // Ask "where" about the strongest partner by Qloo id: names like "Thai Food Near Me" are ambiguous worldwide.
+  // Qloo rejects the heatmap for some entities (QLOO_CONTRACT); try the next partners, and report it if all fail.
   let areas = [];
   let areasRes = null;
-  if (partners[0]?.name) {
-    areasRes = await step(`Where in ${city} the top partner's audience concentrates (flyers, local ads)`, 'where_popular', {
-      entity: partners[0].entity_id ?? partners[0].name, entity_type: 'place', within: city, limit: 5,
-    });
+  let areasError = null;
+  for (const p of partners.slice(0, 3)) {
+    const why = `Where in ${city} the audience of ${p.name} concentrates (flyers, local ads)`;
+    const input = { entity: p.entity_id ?? p.name, entity_type: 'place', within: city, limit: 5 };
+    try {
+      areasRes = await step(why, 'where_popular', input);
+    } catch (e) {
+      areasError = e.message;
+      trace.push({ why, op: 'where_popular', input, status: 'error', error: e.message, count: 0 });
+      continue;
+    }
     areas = items(areasRes);
+    if (areas.length) break;
   }
 
   return {
     business, city, concept, choice, trace, status: 'ok',
     partners: partners.slice(0, 5), culture: items(cultureRes).slice(0, 5), areas: areas.slice(0, 5),
     sources: { partners: cite(partnersRes), culture: cite(cultureRes), areas: areasRes ? cite(areasRes) : null },
+    areasError: areas.length ? null : areasError,
   };
 }
 
@@ -101,10 +111,10 @@ export function toBrief(r) {
   if (r.status !== 'ok') return [...out, '', 'Refine the concept and run again; no recommendation was made from an uncertain tag.'].join('\n');
   out.push('', '## 1. Partner candidates (cross-promotion, bundles, co-hosted nights)', ...r.partners.map(line), src(r.sources.partners));
   out.push('', '## 2. Culture hooks for events and content', ...r.culture.map(line), src(r.sources.culture));
-  out.push('', '## 3. Areas to focus flyers and local ads', ...(r.areas.length ? r.areas.map(area) : ['- No area signal returned.']), src(r.sources.areas));
+  out.push('', '## 3. Areas to focus flyers and local ads', ...(r.areas.length ? r.areas.map(area) : [`- No area signal returned${r.areasError ? ` (${r.areasError})` : ''}.`]), src(r.sources.areas));
   out.push('', '## What this does not establish',
     '- Qloo describes what groups tend to like, not what any one customer will do.',
     '- Partners are taste-adjacent, not verified as open to a deal: call them before printing anything.',
-    '', '## Agent trace', ...r.trace.map((t, i) => `${i + 1}. ${t.why} → \`${t.op}\` ${t.status} (${t.count} results, ${t.correlation_id ?? 'n/a'})`));
+    '', '## Agent trace', ...r.trace.map((t, i) => `${i + 1}. ${t.why} → \`${t.op}\` ${t.status} (${t.error ?? `${t.count} results, ${t.correlation_id ?? 'n/a'}`})`));
   return out.join('\n');
 }

@@ -97,3 +97,20 @@ test('harness errors surface instead of falling back', async () => {
   const run = makeRunner({ exec: async () => ({ error: { code: 'QLOO_AUTH', recovery: 'set key' } }) });
   await assert.rejects(run('find_tags', { query: 'x' }), /QLOO_AUTH/);
 });
+
+test('where_popular failing on the top partner moves to the next one, and a total failure is reported, not hidden', async () => {
+  const { run } = fakeRun();
+  const flaky = async (op, input) => {
+    if (op === 'where_popular' && input.entity === 'E-COSMIC') throw new Error('Qloo where_popular failed: QLOO_CONTRACT (x)');
+    return run(op, input);
+  };
+  const r = await scout({ business: "Rosa's Taqueria", concept: 'tacos', city: 'Austin, TX' }, flaky);
+  assert.equal(r.areas[0].name, 'East Austin');
+  assert.match(r.trace.find((t) => t.status === 'error').error, /QLOO_CONTRACT/);
+  assert.match(r.trace.at(-1).why, /Vinyl Bar/);
+
+  const down = async (op, input) => (op === 'where_popular' ? Promise.reject(new Error('Qloo where_popular failed: QLOO_CONTRACT')) : run(op, input));
+  const r2 = await scout({ business: "Rosa's Taqueria", concept: 'tacos', city: 'Austin, TX' }, down);
+  assert.equal(r2.areas.length, 0);
+  assert.match(toBrief(r2), /QLOO_CONTRACT/);
+});

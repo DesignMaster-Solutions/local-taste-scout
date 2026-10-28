@@ -22,3 +22,8 @@ test('bad input is a 400, and personal data never reaches Qloo', async () => {
   assert.equal(pii.status, 400);
   assert.match((await pii.json()).error, /personal data/);
 });
+
+test('the page script parses (a syntax error once shipped a dead page)', async () => {
+  const html = await (await fetch(base)).text();
+  assert.doesNotThrow(() => new Function(html.match(/<script>([\s\S]*)<\/script>/)[1]));
+});

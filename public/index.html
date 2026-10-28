@@ -157,7 +157,7 @@ function render({ result: r, mode }) {
       $('li', {}, 'Qloo describes what groups tend to like, not what any one customer will do.'),
       $('li', {}, 'Partners are taste-adjacent, not verified as open to a deal: call them before printing anything.'))),
     $('section', { className: 'wide reveal' }, $('h3', {}, 'Agent trace', $('b', {}, 'Each call is decided by the previous result')),
-      $('ol', { className: 'trace' }, ...r.trace.map((t, i) => $('li', {}, $('i', {}, i + 1), $('div', {}, `${t.why} → ${t.op} ${t.status} (${t.count} results)`, $('br'), $('code', {}, t.correlation_id ?? '')))))
+      $('ol', { className: 'trace' }, ...r.trace.map((t, i) => $('li', {}, $('i', {}, i + 1), $('div', {}, `${t.why} → ${t.op} ${t.status} (${t.count} results)`, $('br'), $('code', {}, t.correlation_id ?? ''))))))
   );
   sheet.append(grid);
   [...sheet.querySelectorAll('.reveal')].forEach((el, i) => { el.style.animationDelay = `${i * 90}ms`; });

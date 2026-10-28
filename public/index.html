@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local Taste Scout: partners, event themes and flyer zones for local businesses</title>
+<meta name="description" content="An agent that turns a local business, a concept and a city into a cited brief: taste-adjacent partners, culture hooks and the areas where that audience concentrates, from Qloo's taste graph.">
+<meta property="og:title" content="Local Taste Scout">
+<meta property="og:description" content="Who should a small business partner with, what should its next event be about, and where should its flyers go? A cited brief from Qloo's taste graph.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231b2330'/%3E%3Ccircle cx='11' cy='12' r='4' fill='%23ffd23f'/%3E%3Ccircle cx='21' cy='20' r='4' fill='%2366c2b5'/%3E%3Cpath d='M11 12L21 20' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b2330;--ink2:#4a5566;--line:#dfe2e6;--paper:#fbfbf8;--card:#fff;--hi:#ffd23f;--teal:#1f7f73;--err:#b3261e;
+  --sans:'Instrument Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--r:10px}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--sans)}
+a{color:var(--teal)}
+.top{display:flex;align-items:center;gap:14px;padding:18px clamp(16px,4vw,48px);border-bottom:2px solid var(--ink)}
+.mark{width:34px;height:34px;flex:none}
+.top b{font-size:19px;letter-spacing:-.01em}.top span{color:var(--ink2);font-size:14px;margin-left:auto;white-space:nowrap}
+main{display:grid;grid-template-columns:minmax(280px,380px) 1fr;gap:clamp(20px,3vw,40px);padding:clamp(16px,4vw,48px);max-width:1400px;margin:0 auto}
+h1{font-size:clamp(28px,3.4vw,42px);line-height:1.08;letter-spacing:-.02em;margin:0 0 12px}
+h1 mark{background:linear-gradient(transparent 55%,var(--hi) 55%);color:inherit;padding:0 2px}
+.lede{color:var(--ink2);margin:0 0 22px}
+form{display:grid;gap:12px}
+label{font-size:13px;font-weight:600;display:grid;gap:4px}
+label small{font-weight:400;color:var(--ink2)}
+input{font:16px var(--sans);padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+input:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px #ffd23f80}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:nowrap}
+button{font:600 16px var(--sans);padding:12px 18px;border:0;border-radius:8px;background:var(--ink);color:#fff;cursor:pointer;white-space:nowrap}
+button:disabled{opacity:.55;cursor:wait}
+.cases{margin-top:22px;border-top:1px dashed var(--line);padding-top:16px}
+.cases p{margin:0 0 8px;font-size:13px;font-weight:600}
+.chip{display:block;width:100%;text-align:left;background:#fff;color:var(--ink);border:1.5px solid var(--line);font:500 14px var(--sans);padding:9px 12px;margin-bottom:8px}
+.chip:hover{border-color:var(--ink)}
+.chip em{font-style:normal;color:var(--ink2);font-size:12px;display:block}
+#out{min-height:300px}
+.empty{border:2px dashed var(--line);border-radius:var(--r);padding:40px;color:var(--ink2);display:grid;place-items:center;text-align:center;min-height:320px}
+.status{font:14px var(--mono);color:var(--ink2);padding:14px 0}
+.err{color:var(--err);font-weight:600;border:1.5px solid var(--err);border-radius:8px;padding:12px 14px;background:#fff}
+.sheet{background:var(--card);border:1.5px solid var(--ink);border-radius:var(--r);box-shadow:6px 6px 0 var(--ink);padding:clamp(16px,2.5vw,30px)}
+.sheet h2{margin:0;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.015em}
+.meta{font:13px var(--mono);color:var(--ink2);margin:4px 0 16px}
+.decision{background:#fff8d9;border-left:4px solid var(--hi);padding:10px 14px;border-radius:0 8px 8px 0;font-size:15px;margin-bottom:22px}
+.decision code{font:13px var(--mono)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+section h3{font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px;color:var(--ink2)}
+section h3 b{color:var(--ink);font-size:15px;letter-spacing:0;text-transform:none;display:block}
+ol.list{margin:0;padding:0;list-style:none;counter-reset:n}
+ol.list li{counter-increment:n;padding:9px 0 9px 34px;border-top:1px solid var(--line);position:relative}
+ol.list li::before{content:counter(n);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;font:500 12px/24px var(--mono);text-align:center}
+ol.list li span{display:block;font-size:13px;color:var(--ink2)}
+.src{font:12px var(--mono);color:var(--ink2);margin-top:8px;word-break:break-all}
+.map{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:start}
+.map svg{width:100%;height:auto;background:#f2f4f1;border-radius:8px;border:1px solid var(--line)}
+.wide{grid-column:1/-1}
+.caveats{background:#f4f5f7;border-radius:8px;padding:12px 16px;font-size:14px}
+.caveats ul{margin:6px 0 0;padding-left:18px}
+.trace{margin:0;padding:0;list-style:none}
+.trace li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
+.trace i{font:500 12px/24px var(--mono);font-style:normal;width:24px;height:24px;border-radius:6px;background:var(--hi);text-align:center}
+.trace code{font:12px var(--mono);color:var(--ink2);word-break:break-all}
+.reveal{animation:up .38s cubic-bezier(.2,.7,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){.reveal{animation:none}}
+footer{padding:24px clamp(16px,4vw,48px);border-top:1px solid var(--line);font-size:13px;color:var(--ink2);display:flex;gap:18px;flex-wrap:wrap}
+@media (max-width:1100px){.grid{grid-template-columns:1fr}}
+@media (max-width:820px){main{grid-template-columns:1fr}.top span{display:none}}
+@media (max-width:420px){.map{grid-template-columns:1fr}button{padding:12px 14px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#1b2330"/><circle cx="11" cy="12" r="4" fill="#ffd23f"/><circle cx="21" cy="20" r="4" fill="#66c2b5"/><path d="M11 12L21 20" stroke="#fff" stroke-width="2"/></svg>
+  <b>Local Taste Scout</b><span>Agent on the Qloo taste graph</span>
+</header>
+<main>
+  <div>
+    <h1>Who shares your <mark>customers' taste</mark> in town?</h1>
+    <p class="lede">Tell the agent what you run and where. It picks the right Qloo tag, finds taste-adjacent partners, culture hooks for events, and the areas where that audience concentrates. Every claim cites the Qloo call behind it.</p>
+    <form id="f">
+      <label>Business name <input name="business" required maxlength="80" placeholder="Rosa's Taqueria"></label>
+      <label>What you sell, in a word or two <input name="concept" required maxlength="80" placeholder="tacos"></label>
+      <label>City <input name="city" required maxlength="80" placeholder="Austin, TX"></label>
+      <label>Audience <small>(optional, e.g. millennials)</small><input name="audience" maxlength="80"></label>
+      <div class="row"><button id="go">Scout my town</button><small>Live Qloo calls, about 5 s</small></div>
+    </form>
+    <div class="cases">
+      <p>Or open a recorded case (instant, no Qloo call)</p>
+      <button class="chip" data-case='{"business":"Rosa&#39;s Taqueria","concept":"tacos","city":"Austin, TX"}'>Rosa's Taqueria <em>tacos · Austin, TX</em></button>
+      <button class="chip" data-case='{"business":"Side A Records","concept":"record store","city":"Portland, OR"}'>Side A Records <em>record store · Portland, OR</em></button>
+      <button class="chip" data-case='{"business":"Flow Yoga Studio","concept":"yoga","city":"Denver, CO","audience":"millennials"}'>Flow Yoga Studio <em>yoga · Denver, CO · millennials</em></button>
+    </div>
+  </div>
+  <div id="out" aria-live="polite"><div class="empty">Your brief appears here: partners to call, themes for your next event, and where to put flyers.</div></div>
+</main>
+<footer>
+  <span>Results describe what groups tend to like, not what any one customer will do.</span>
+  <a href="https://github.com/DesignMaster-Solutions/local-taste-scout">Source on GitHub (MIT)</a>
+  <a href="https://www.designmastersolutions.com/?utm_source=local-taste-scout&utm_medium=referral&utm_campaign=site-footer">Website by Design Master Solutions</a>
+</footer>
+<script>
+const $ = (t, props = {}, ...kids) => { const e = document.createElement(t); Object.assign(e, props); e.append(...kids); return e; };
+const out = document.getElementById('out');
+const go = document.getElementById('go');
+const corr = (s) => s ? `Qloo ${s.operation} · ${s.correlation_id}` : '';
+
+function list(items, sub) {
+  return $('ol', { className: 'list' }, ...items.map((e) => $('li', {}, e.name ?? e.entity_id ?? '', sub(e) ? $('span', {}, sub(e)) : '')));
+}
+
+function mapOf(areas) {
+  const pts = areas.map((a) => a.location).filter(Boolean);
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(svgNS, 'svg');
+  svg.setAttribute('viewBox', '0 0 200 160'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'Relative position of the areas');
+  const la = pts.map((p) => p.latitude), lo = pts.map((p) => p.longitude);
+  const [a0, a1, o0, o1] = [Math.min(...la), Math.max(...la), Math.min(...lo), Math.max(...lo)];
+  pts.forEach((p, i) => {
+    const x = 20 + 160 * ((p.longitude - o0) / ((o1 - o0) || 1)), y = 140 - 120 * ((p.latitude - a0) / ((a1 - a0) || 1));
+    const c = document.createElementNS(svgNS, 'circle'); c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', 11);
+    c.setAttribute('fill', i === 0 ? '#ffd23f' : '#66c2b5'); c.setAttribute('stroke', '#1b2330'); c.setAttribute('stroke-width', 1.5);
+    const t = document.createElementNS(svgNS, 'text'); t.setAttribute('x', x); t.setAttribute('y', y + 4); t.setAttribute('text-anchor', 'middle');
+    t.setAttribute('font-size', 11); t.setAttribute('font-family', 'IBM Plex Mono'); t.textContent = i + 1;
+    svg.append(c, t);
+  });
+  const items = $('ol', { className: 'list' }, ...areas.map((a) => {
+    const { latitude: y, longitude: x } = a.location ?? {};
+    const pop = a.query?.popularity != null ? ` · popularity ${Math.round(a.query.popularity * 100)}%` : '';
+    return $('li', {}, $('a', { href: `https://www.google.com/maps?q=${y},${x}`, target: '_blank', rel: 'noopener', textContent: `${y?.toFixed(4)}, ${x?.toFixed(4)}` }),
+      $('span', {}, `geohash ${a.location?.geohash ?? ''}${pop}`));
+  }));
+  return $('div', { className: 'map' }, svg, items);
+}
+
+function render({ result: r, mode }) {
+  const c = r.choice;
+  const sheet = $('article', { className: 'sheet reveal' },
+    $('h2', {}, `Local taste brief: ${r.business}`),
+    $('div', { className: 'meta' }, `${r.city}${mode === 'replay' ? ' · recorded Qloo responses' : ' · live Qloo calls'}`),
+    $('div', { className: 'decision' }, $('b', {}, 'Concept resolved: '), c.tag ? `${c.tag.name} ` : 'none ', c.tag ? $('code', {}, c.tag.id) : '',
+      $('div', {}, c.reason), c.alternatives?.length ? $('div', {}, `Also considered: ${c.alternatives.join(', ')}`) : ''));
+  if (r.status !== 'ok') {
+    sheet.append($('p', {}, 'No recommendation was made from an uncertain tag. Try a more specific word for what you sell.'));
+    return out.replaceChildren(sheet);
+  }
+  const sec = (title, sub, body, src, cls = '') => $('section', { className: `reveal ${cls}` }, $('h3', {}, title, $('b', {}, sub)), body, $('div', { className: 'src' }, corr(src)));
+  const grid = $('div', { className: 'grid' },
+    sec('1 · Partners', 'Call these for cross-promos and co-hosted nights', r.partners.length ? list(r.partners, (e) => e.properties?.address) : $('p', {}, 'No partner returned for this city.'), r.sources.partners),
+    sec('2 · Culture hooks', 'Themes for events, playlists and posts', list(r.culture, () => ''), r.sources.culture),
+    sec('3 · Where to put flyers', `Where the top partner's audience concentrates`, r.areas.length ? mapOf(r.areas) : $('p', {}, 'No area signal returned.'), r.sources.areas, 'wide'),
+    $('div', { className: 'caveats wide reveal' }, $('b', {}, 'What this does not establish'), $('ul', {},
+      $('li', {}, 'Qloo describes what groups tend to like, not what any one customer will do.'),
+      $('li', {}, 'Partners are taste-adjacent, not verified as open to a deal: call them before printing anything.'))),
+    $('section', { className: 'wide reveal' }, $('h3', {}, 'Agent trace', $('b', {}, 'Each call is decided by the previous result')),
+      $('ol', { className: 'trace' }, ...r.trace.map((t, i) => $('li', {}, $('i', {}, i + 1), $('div', {}, `${t.why} → ${t.op} ${t.status} (${t.count} results)`, $('br'), $('code', {}, t.correlation_id ?? '')))))
+  );
+  sheet.append(grid);
+  [...sheet.querySelectorAll('.reveal')].forEach((el, i) => { el.style.animationDelay = `${i * 90}ms`; });
+  out.replaceChildren(sheet);
+}
+
+async function run(input, replay) {
+  go.disabled = true;
+  out.replaceChildren($('div', { className: 'status' }, replay ? 'Loading recorded case…' : 'Resolving the tag, then 3 more Qloo calls…'));
+  try {
+    const q = new URLSearchParams(Object.entries(input).filter(([, v]) => v));
+    if (replay) q.set('replay', '1');
+    const res = await fetch(`/api/scout?${q}`);
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error ?? res.statusText);
+    render(body);
+    if (matchMedia('(max-width:820px)').matches) out.scrollIntoView({ behavior: 'smooth' });
+  } catch (e) {
+    out.replaceChildren($('div', { className: 'err' }, e.message));
+  } finally { go.disabled = false; }
+}
+
+document.getElementById('f').addEventListener('submit', (ev) => {
+  ev.preventDefault();
+  run(Object.fromEntries(new FormData(ev.target)), false);
+});
+document.querySelectorAll('.chip').forEach((b) => b.addEventListener('click', () => {
+  const c = JSON.parse(b.dataset.case);
+  for (const [k, v] of Object.entries(c)) document.querySelector(`[name=${k}]`).value = v;
+  run(c, true);
+}));
+</script>
+</body>
+</html>

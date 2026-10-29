@@ -27,16 +27,20 @@ export function pickTag(results, concept) {
     // A place-scoped tag drives place recommendations best; venue-ish tags (cuisine, amenity) are a step down.
     return (/:place\b|restaurant/.test(blob) ? 3 : /cuisine|category|amenity|activity_type/.test(blob) ? 2 : 0) + overlap;
   };
-  const ranked = tags.map((t) => ({ t, s: score(t) })).sort((a, b) => b.s - a.s);
+  // Equal scores fall back to Qloo popularity, so a tie is broken by data, not by response order.
+  const pop = (t) => Number(t.popularity) || 0;
+  const ranked = tags.map((t) => ({ t, s: score(t) })).sort((a, b) => b.s - a.s || pop(b.t) - pop(a.t));
   const [best, second] = ranked;
   const ambiguous = second && Math.abs(best.s - second.s) < 0.01;
+  // Qloo has many tags with the same display name ("Gym" x3); the id is what tells them apart.
+  const label = (t) => `${String(t.name ?? t.id).trim()}${t.id && t.name ? ` (${t.id})` : ''}`;
   return {
     tag: best.t,
     reason: ambiguous
-      ? `Tie between "${best.t.name}" and "${second.t.name}"; kept the first and flagged it for review.`
+      ? `Tie between ${label(best.t)} and ${label(second.t)}; kept the ${pop(best.t) > pop(second.t) ? 'more popular one on Qloo' : 'first'} and flagged it for review.`
       : `"${best.t.name}" is the closest place-scoped match for "${concept}".`,
     ambiguous: Boolean(ambiguous),
-    alternatives: ranked.slice(1, 4).map(({ t }) => t.name ?? t.id),
+    alternatives: ranked.slice(1, 4).map(({ t }) => label(t)),
   };
 }
 

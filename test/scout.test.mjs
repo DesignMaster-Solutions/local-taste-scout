@@ -55,6 +55,19 @@ test('pickTag flags ties instead of guessing silently', () => {
   assert.equal(r.ambiguous, true);
 });
 
+test('same-name tags are told apart by id, and a score tie goes to the more popular tag (real Qloo "Gym" case)', () => {
+  const r = pickTag([
+    { name: 'Gym', id: 'urn:tag:genre:place:gym', type: 'urn:tag:genre:place', popularity: 0.4 },
+    { name: 'Gym', id: 'urn:tag:category:place:gym', type: 'urn:tag:category:place', popularity: 0.9 },
+    { name: ' Gym', id: 'urn:tag:keyword:qloo:gym', type: 'urn:tag:keyword:qloo' },
+  ], 'gym');
+  assert.equal(r.tag.id, 'urn:tag:category:place:gym');
+  assert.match(r.reason, /more popular/);
+  assert.deepEqual(r.alternatives, ['Gym (urn:tag:genre:place:gym)', 'Gym (urn:tag:keyword:qloo:gym)']);
+  const brief = toBrief({ business: 'B', city: 'C', status: 'ok', choice: r, trace: [], partners: [], culture: [], areas: [], sources: {} });
+  assert.doesNotMatch(brief, /Gym, Gym/);
+});
+
 test('scout chains tag → partners → culture → areas, drops the business itself, cites every step', async () => {
   const { run, calls } = fakeRun();
   const r = await scout({ business: "Rosa's Taqueria", concept: 'tacos', city: 'Austin, TX' }, run);

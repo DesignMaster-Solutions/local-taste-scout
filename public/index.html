@@ -143,7 +143,7 @@ function planOf(r) {
   const p = r.plan;
   const head = (sub) => $('h3', {}, '4. Plan', $('b', {}, sub));
   if (!p) return $('section', { className: 'wide reveal' }, head('Drafted by an LLM from sections 1-3'), $('p', {}, `LLM step skipped${r.planError ? `: ${r.planError}` : '.'}`));
-  const f = (ref) => (p.facts?.[ref] ? `${p.facts[ref].split(',')[0]} [${ref}]` : `${ref} (not in Qloo results)`);
+  const f = (ref) => (p.facts?.[ref] ? `${ref.startsWith('P') ? p.facts[ref].split(',')[0] : p.facts[ref]} [${ref}]` : `${ref} (not in Qloo results)`);
   const rows = [];
   if (p.partner) rows.push($('p', {}, $('b', {}, 'Call first: '), f(p.partner.ref), `. ${p.partner.why ?? ''}`), $('blockquote', { className: 'msg' }, p.partner.message ?? ''));
   if (p.event) rows.push($('p', {}, $('b', {}, 'Next event: '), `${p.event.title}, with ${f(p.event.partner_ref)}; theme ${(p.event.culture_refs ?? []).map(f).join(', ')}. ${p.event.pitch ?? ''}`));

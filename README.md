@@ -32,6 +32,18 @@ Each step decides the next request from the previous result:
    worldwide) within the city: the areas where that shared audience
    concentrates, for flyers and local ads.
 
+5. **LLM plan** (`src/plan.mjs`): the model receives only the numbered Qloo facts from steps 2-4
+   (`P1` partner, `C1` artist, `A1` area) and writes what the owner does next: who to call first and a
+   ready-to-send 3-sentence message, the next event (partner + culture theme), the flyer headline and
+   where it goes. Every id it cites is checked against the facts; a reference Qloo did not return is
+   sent back to the model once with the error, and a plan that is still wrong is shown as
+   **UNGROUNDED**, never as checked. If the LLM fails, the Qloo brief still prints and says why.
+   Default endpoint: Nebius Token Factory (OpenAI-compatible, `Qwen/Qwen3-235B-A22B-Instruct-2507`);
+   `LLM_BASE_URL`, `LLM_MODEL` and `LLM_API_KEY` change it, `--no-plan` skips it.
+
+Qloo decides *who* and *where* from real taste data; the LLM only turns that into words the owner can
+use, so its output can be audited line by line.
+
 The brief ends with **what this does not establish** and the full agent trace (why each call was made,
 status, result count, correlation id).
 
@@ -72,7 +84,7 @@ node src/cli.mjs --business "Flow Yoga Studio" --concept yoga --city "Denver, CO
 ```
 
 `--record` saves each Qloo response to `fixtures/`; `--replay` (and `npm run demo`) re-runs the brief
-from those files with no credential, so judges can reproduce the exact demo output. `--json` prints the
+from those files with no credential, so judges can reproduce the exact demo output, including the recorded LLM plan. `--json` prints the
 raw agent result.
 
 ## Responsible data handling

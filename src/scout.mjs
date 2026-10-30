@@ -2,6 +2,8 @@
 // outreach brief. Each step decides what to ask next from the previous Qloo result, and every
 // claim in the brief keeps the operation + correlation id that produced it.
 
+import { planSection } from './plan.mjs';
+
 const PII = [/[^\s@]+@[^\s@]+\.[^\s@]+/, /\+?\d[\d\s().-]{7,}\d/];
 
 export function assertNoPersonalData(fields) {
@@ -116,6 +118,8 @@ export function toBrief(r) {
   out.push('', '## 1. Partner candidates (cross-promotion, bundles, co-hosted nights)', ...r.partners.map(line), src(r.sources.partners));
   out.push('', '## 2. Culture hooks for events and content', ...r.culture.map(line), src(r.sources.culture));
   out.push('', '## 3. Areas to focus flyers and local ads', ...(r.areas.length ? r.areas.map(area) : [`- No area signal returned${r.areasError ? ` (${r.areasError})` : ''}.`]), src(r.sources.areas));
+  out.push(...planSection(r.plan));
+  if (r.planError) out.push('', `## 4. Plan\n- LLM step skipped: ${r.planError}`);
   out.push('', '## What this does not establish',
     '- Qloo describes what groups tend to like, not what any one customer will do.',
     '- Partners are taste-adjacent, not verified as open to a deal: call them before printing anything.',

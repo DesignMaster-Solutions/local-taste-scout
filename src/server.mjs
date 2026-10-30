@@ -4,11 +4,15 @@ import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { makeRunner } from './qloo.mjs';
 import { scout, toBrief } from './scout.mjs';
+import { draftPlan, makeChat } from './plan.mjs';
 
 const PORT = Number(process.env.PORT ?? 8080);
 const PAGE = new URL('../public/index.html', import.meta.url);
 const live = makeRunner({ mode: 'live' });
-const replay = makeRunner({ mode: 'replay', fixturesDir: new URL('../fixtures', import.meta.url).pathname });
+const FIX = new URL('../fixtures', import.meta.url).pathname;
+const replay = makeRunner({ mode: 'replay', fixturesDir: FIX });
+const chatLive = makeChat({ mode: 'live' });
+const chatReplay = makeChat({ mode: 'replay', fixturesDir: FIX });
 
 // shortcut: in-memory cache and per-IP limit, reset on restart; enough for a judged demo, not for real traffic.
 const cache = new Map();
@@ -50,6 +54,7 @@ const server = http.createServer(async (req, res) => {
       const ip = String(req.headers['x-forwarded-for'] ?? req.socket.remoteAddress).split(',')[0].trim();
       if (!isReplay && !allowed(ip)) return send(res, 429, { error: `Live demo limit reached (${LIMIT} runs per hour). Try a recorded case.` });
       const r = await scout(input, isReplay ? replay : live);
+      r.plan = await draftPlan(r, isReplay ? chatReplay : chatLive).catch((e) => { r.planError = e.message; return null; });
       cache.set(key, { result: r, brief: toBrief(r), mode: isReplay ? 'replay' : 'live' });
     }
     send(res, 200, cache.get(key));

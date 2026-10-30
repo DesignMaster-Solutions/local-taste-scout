@@ -27,3 +27,17 @@ test('the page script parses (a syntax error once shipped a dead page)', async (
   const html = await (await fetch(base)).text();
   assert.doesNotThrow(() => new Function(html.match(/<script>([\s\S]*)<\/script>/)[1]));
 });
+
+test('every recorded case on the page replays, including its LLM plan (a tag change once broke the yoga case)', async () => {
+  const html = await (await fetch(base)).text();
+  const cases = [...html.matchAll(/data-case='([^']+)'/g)].map((m) => JSON.parse(m[1].replace(/&#39;/g, "'")));
+  assert.equal(cases.length, 3);
+  for (const c of cases) {
+    const res = await fetch(`${base}/api/scout?${new URLSearchParams({ ...c, replay: '1' })}`);
+    assert.equal(res.status, 200, c.business);
+    const { result, brief } = await res.json();
+    assert.equal(result.plan?.grounded, true, c.business);
+    assert.match(brief, /## 4\. Plan drafted by the LLM/);
+    assert.doesNotMatch(result.plan.partner.message, /I'm Rosa/);
+  }
+});

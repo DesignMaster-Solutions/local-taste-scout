@@ -1,0 +1,336 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "recommend",
+  "status": "ok",
+  "interpretation": {
+    "target_type": "urn:entity:place",
+    "signals": [],
+    "signal_tags": [
+      {
+        "input": "urn:tag:amenity:qloo:yoga",
+        "tagId": "urn:tag:amenity:qloo:yoga",
+        "name": "urn:tag:amenity:qloo:yoga",
+        "match": "identifier"
+      }
+    ],
+    "signal_tags_operator": "intersection",
+    "signal_location": "Denver, CO",
+    "demographic": {
+      "input": "millennials",
+      "age": "30_to_34,35_to_44"
+    },
+    "filter_location": "Denver, CO",
+    "include_tags": [],
+    "exclude_tags": []
+  },
+  "resolution": {
+    "contract_version": "1.0-preview.1",
+    "provider": {
+      "contract_version": "1.0-preview.1",
+      "provider_id": "qloo_api",
+      "name": "Qloo native resolution",
+      "entity_strategy": "exact_name_context_or_choice",
+      "tag_strategy": "target_scoped_semantic_search_exact_name_or_choice",
+      "remote": true,
+      "uses_model": false,
+      "fallback": "none"
+    },
+    "outcomes": [
+      {
+        "input": "urn:tag:amenity:qloo:yoga",
+        "status": "resolved",
+        "match": "identifier",
+        "selected": {
+          "id": "urn:tag:amenity:qloo:yoga",
+          "name": "urn:tag:amenity:qloo:yoga"
+        },
+        "provenance": {
+          "contract_version": "1.0-preview.1",
+          "provider_id": "qloo_api",
+          "provider_name": "Qloo native resolution",
+          "endpoint": "local:tag-urn",
+          "strategy": "supplied_identifier",
+          "remote": true,
+          "uses_model": false
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "entity_id": "09CDBF51-6CCC-4AD3-92C5-DE275AE353E8",
+      "name": "West Side Books",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.8054980106615613,
+      "affinity": 0.9089911533045162,
+      "properties": {
+        "description": "Independent Denver shop offering new, used, rare and collectible books, custom searches, and community events.",
+        "short_description": "Independent Denver shop offering new, used, rare and collectible books, custom searches, and community events.",
+        "image": {
+          "url": "https://images.qloo.com/i/09CDBF51-6CCC-4AD3-92C5-DE275AE353E8-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Denver",
+          "name": null,
+          "metro": "Denver",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Colorado",
+          "admin2_region": "Denver"
+        },
+        "address": "3434 W 32nd Ave Denver, CO 80211",
+        "price_level": null,
+        "business_rating": 4.800000190734863
+      }
+    },
+    {
+      "entity_id": "9F72F634-97F1-4BDD-8739-15602B30385C",
+      "name": "Nocturne",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.9379908108945393,
+      "affinity": 0.908840525918637,
+      "properties": {
+        "description": "Bi-level lounge and eatery serving eclectic plates and cocktails alongside nightly live jazz in an intimate supper-club setting.",
+        "short_description": "Bi-level lounge and eatery serving eclectic plates and cocktails alongside nightly live jazz in an intimate supper-club setting.",
+        "image": {
+          "url": "https://images.qloo.com/i/9F72F634-97F1-4BDD-8739-15602B30385C-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Denver",
+          "name": "Five Points",
+          "metro": "Denver",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Colorado",
+          "admin2_region": "Denver"
+        },
+        "address": "between Larimer and Walnut on 27th 1330 27th St Denver, CO 80205",
+        "price_level": 4,
+        "business_rating": 4.800000190734863
+      }
+    },
+    {
+      "entity_id": "58213B19-EC06-4207-8E72-B91F782D58DC",
+      "name": "King Soopers",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.5681599613090297,
+      "affinity": 0.8868670144122766,
+      "properties": {
+        "description": "Full-service grocery store with pharmacy, prepared foods, organic and kosher options, and convenient pickup/delivery in Greenwood Village.",
+        "short_description": "Full-service grocery store with pharmacy, prepared foods, organic and kosher options, and convenient pickup/delivery in Greenwood Village.",
+        "image": {
+          "url": "https://images.qloo.com/i/58213B19-EC06-4207-8E72-B91F782D58DC-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Greenwood Village",
+          "name": null,
+          "metro": null,
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Colorado",
+          "admin2_region": "Arapahoe County"
+        },
+        "address": "4910 S Yosemite St Greenwood Village, CO 80111",
+        "price_level": null,
+        "business_rating": 4
+      }
+    },
+    {
+      "entity_id": "60529846-EB45-4026-AB0A-E3E7E2578A53",
+      "name": "Brasserie Brixton",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.7662461400965268,
+      "affinity": 0.8868468361485394,
+      "properties": {
+        "description": "Hip French-American bistro with an open kitchen, cozy bar, and creative dishes in a lively neighborhood setting.",
+        "short_description": "Hip French-American bistro with an open kitchen, cozy bar, and creative dishes in a lively neighborhood setting.",
+        "image": {
+          "url": "https://images.qloo.com/i/60529846-EB45-4026-AB0A-E3E7E2578A53-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Denver",
+          "name": null,
+          "metro": "Denver",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Colorado",
+          "admin2_region": "Denver"
+        },
+        "address": "3701 N Williams St Denver, CO 80205",
+        "price_level": 3,
+        "business_rating": 4.599999904632568
+      }
+    },
+    {
+      "entity_id": "D7060615-269F-4233-AB8A-9F49FBD60D2A",
+      "name": "Thick As Thieves",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.86991052713104,
+      "affinity": 0.8868233734829087,
+      "properties": {
+        "description": "Walk-in-friendly tattoo studio on East Colfax Avenue, rated Denver's best walk-in tattoo shop and featuring multiple experienced artists.",
+        "short_description": "Walk-in-friendly tattoo studio on East Colfax Avenue, rated Denver's best walk-in tattoo shop and featuring multiple experienced artists.",
+        "image": {
+          "url": "https://images.qloo.com/i/D7060615-269F-4233-AB8A-9F49FBD60D2A-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Denver",
+          "name": null,
+          "metro": "Denver",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Colorado",
+          "admin2_region": "Denver"
+        },
+        "address": "4610 E Colfax Ave Denver, CO 80220",
+        "price_level": null,
+        "business_rating": 4.599999904632568
+      }
+    },
+    {
+      "entity_id": "0EEC6554-BB47-4D56-84DF-4E961ED7B3F0",
+      "name": "Chook",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.5856489039601411,
+      "affinity": 0.8866552413545369,
+      "properties": {
+        "description": "Relaxed Australian restaurant specializing in carefully sourced rotisserie chicken dishes and sides.",
+        "short_description": "Relaxed Australian restaurant specializing in carefully sourced rotisserie chicken dishes and sides.",
+        "image": {
+          "url": "https://images.qloo.com/i/0EEC6554-BB47-4D56-84DF-4E961ED7B3F0-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Denver",
+          "name": null,
+          "metro": "Denver",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Colorado",
+          "admin2_region": "Denver"
+        },
+        "address": "4340 E 8th Ave Denver, CO 80220",
+        "price_level": 2,
+        "business_rating": 4.599999904632568
+      }
+    },
+    {
+      "entity_id": "6E6FCCC0-983F-4AA3-92C8-D60F5A791324",
+      "name": "Applebee's Grill + Bar",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.8647873909634148,
+      "affinity": 0.8864447767693855,
+      "properties": {
+        "description": "Full-service neighborhood bar and grill serving hearty American comfort food, happy hour specials, and dine-in, takeout, and delivery options.",
+        "short_description": "Full-service neighborhood bar and grill serving hearty American comfort food, happy hour specials, and dine-in, takeout, and delivery options.",
+        "image": {
+          "url": "https://images.qloo.com/i/6E6FCCC0-983F-4AA3-92C8-D60F5A791324-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Aurora",
+          "name": null,
+          "metro": null,
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Colorado",
+          "admin2_region": "Arapahoe County"
+        },
+        "address": "10501 E Garden Dr Aurora, CO 80012",
+        "price_level": 2,
+        "business_rating": 3.9000000953674316
+      }
+    },
+    {
+      "entity_id": "678557B8-0181-4346-A432-60DD9F24BE77",
+      "name": "Blanco Cocina + Cantina",
+      "type": "urn:entity",
+      "subtype": "urn:entity:place",
+      "popularity": 0.06802939414234459,
+      "affinity": 0.8858664620981282,
+      "properties": {
+        "description": "Relaxed, contemporary Mexican spot serving tacos, classic dishes, cocktails, and attentive allergy-aware service.",
+        "short_description": "Relaxed, contemporary Mexican spot serving tacos, classic dishes, cocktails, and attentive allergy-aware service.",
+        "image": {
+          "url": "https://images.qloo.com/i/678557B8-0181-4346-A432-60DD9F24BE77-420x-auto.jpg"
+        },
+        "geocode": {
+          "city": "Denver",
+          "name": null,
+          "metro": "Denver",
+          "country": "United States",
+          "country_code": "US",
+          "admin1_region": "Colorado",
+          "admin2_region": "Denver"
+        },
+        "address": "4177 E 9th Ave Denver, CO 80220",
+        "price_level": 1,
+        "business_rating": 4.099999904632568
+      }
+    }
+  ],
+  "result_count": 8,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/insights",
+    "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/insights",
+        "query": {
+          "filter.type": "urn:entity:place",
+          "take": 8,
+          "signal.interests.tags": [
+            "urn:tag:amenity:qloo:yoga"
+          ],
+          "operator.signal.interests.tags": "intersection",
+          "signal.location.query": "Denver, CO",
+          "signal.demographics.age": "30_to_34,35_to_44",
+          "filter.location.query": "Denver, CO",
+          "feature.explainability": true
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "recommend",
+    "job": "recommend",
+    "signals": {
+      "tags": [
+        "urn:tag:amenity:qloo:yoga"
+      ],
+      "location": "Denver, CO",
+      "demographic": "millennials"
+    },
+    "filters": {
+      "location": "Denver, CO"
+    },
+    "operators": {
+      "signalTags": "intersection"
+    },
+    "output": {
+      "limit": 8,
+      "explain": true
+    },
+    "assumptions": [],
+    "unresolved": [],
+    "target": {
+      "type": "place"
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-5ad9c9a9-e280-4948-aa66-9ad8b001df43",
+    "duration_ms": 3410
+  }
+}

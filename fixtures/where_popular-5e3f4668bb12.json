@@ -165,7 +165,7 @@
   "execution": {
     "transport": "direct",
     "transport_name": "Qloo API",
-    "correlation_id": "exec-6ce85b6d-bdb7-4c0e-aa39-24913a632c61",
-    "duration_ms": 1508
+    "correlation_id": "exec-f07519df-35a4-42cb-8c6c-358badbd8050",
+    "duration_ms": 1861
   }
 }

@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0-preview.1",
+  "operation": "recommend",
+  "status": "ok",
+  "interpretation": {
+    "target_type": "urn:entity:artist",
+    "signals": [],
+    "signal_tags": [
+      {
+        "input": "urn:tag:amenity:qloo:yoga",
+        "tagId": "urn:tag:amenity:qloo:yoga",
+        "name": "urn:tag:amenity:qloo:yoga",
+        "match": "identifier"
+      }
+    ],
+    "signal_tags_operator": "intersection",
+    "signal_location": "Denver, CO",
+    "include_tags": [],
+    "exclude_tags": []
+  },
+  "resolution": {
+    "contract_version": "1.0-preview.1",
+    "provider": {
+      "contract_version": "1.0-preview.1",
+      "provider_id": "qloo_api",
+      "name": "Qloo native resolution",
+      "entity_strategy": "exact_name_context_or_choice",
+      "tag_strategy": "target_scoped_semantic_search_exact_name_or_choice",
+      "remote": true,
+      "uses_model": false,
+      "fallback": "none"
+    },
+    "outcomes": [
+      {
+        "input": "urn:tag:amenity:qloo:yoga",
+        "status": "resolved",
+        "match": "identifier",
+        "selected": {
+          "id": "urn:tag:amenity:qloo:yoga",
+          "name": "urn:tag:amenity:qloo:yoga"
+        },
+        "provenance": {
+          "contract_version": "1.0-preview.1",
+          "provider_id": "qloo_api",
+          "provider_name": "Qloo native resolution",
+          "endpoint": "local:tag-urn",
+          "strategy": "supplied_identifier",
+          "remote": true,
+          "uses_model": false
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "entity_id": "F23E8901-D8AB-48AA-88CF-E01FDECF7C58",
+      "name": "Pharrell Williams",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9979749523229067,
+      "affinity": 0.9049784499092903,
+      "properties": {
+        "description": "Pharrell Williams is an American singer, rapper, songwriter, and record producer who rose to fame as part of the production duo The Neptunes and the band N.E.R.D. He is known for his distinctive falsetto voice and blending of hip hop, R&B, funk, and pop music. Pharrell has produced numerous hit songs for various artists and has a successful solo career with hits like \"Happy.\" He is also recognized for his influence on contemporary music and fashion.",
+        "image": {
+          "url": "https://images.qloo.com/i/F23E8901-D8AB-48AA-88CF-E01FDECF7C58-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "3A2C381C-34D6-44B3-AB2F-AC86B292B738",
+      "name": "Roya",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.6756614172712319,
+      "affinity": 0.8990972628180134,
+      "properties": {
+        "description": "Roya is a solo music artist specializing in pop and electronic genres, often incorporating dance and synthpop elements into her music. She is recognized for her vibrant and energetic sound that appeals to a broad audience.",
+        "image": {
+          "url": "https://images.qloo.com/i/3A2C381C-34D6-44B3-AB2F-AC86B292B738-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "3667D507-5CBE-4A5D-BE6B-8BD91CFBB07A",
+      "name": "James Bond",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.8882947001422121,
+      "affinity": 0.8952751621417602,
+      "properties": {
+        "description": "",
+        "image": {
+          "url": "https://images.qloo.com/i/3667D507-5CBE-4A5D-BE6B-8BD91CFBB07A-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "35E1DE1E-95EF-4ADC-BAED-B1E1D7D74036",
+      "name": "Alanis Morissette",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9992922163458703,
+      "affinity": 0.8924111334915286,
+      "properties": {
+        "description": "Alanis Morissette is a Canadian-American singer-songwriter whose breakthrough 1995 album Jagged Little Pill made her an international star. Noted for a raw, emotive mezzo-soprano and intensely confessional lyrics, she blends alternative rock, pop-rock and singer-songwriter traditions. Morissette began performing as a child in Ottawa, appeared on Canadian television, and released two dance-pop albums in Canada as a teenager before reinventing her sound with mature, guitar-driven songwriting that propelled her to global fame. She has sold tens of millions of records worldwide and received multiple Grammy Awards, while continuing to record, tour and engage in theatrical and advocacy projects.",
+        "image": {
+          "url": "https://images.qloo.com/i/35E1DE1E-95EF-4ADC-BAED-B1E1D7D74036-420x-auto.jpg"
+        }
+      }
+    },
+    {
+      "entity_id": "2D1676A1-EC6D-482C-A778-4B2BAAD2D92E",
+      "name": "Lizzo",
+      "type": "urn:entity",
+      "subtype": "urn:entity:artist",
+      "popularity": 0.9938167233548946,
+      "affinity": 0.8877298783533698,
+      "properties": {
+        "description": "Lizzo, born Melissa Viviane Jefferson, is an American singer, rapper, songwriter, and flutist. She blends elements of pop, hip hop, R&B, and soul in her music, often incorporating funk and dance influences. Lizzo is celebrated for her powerful vocals, charismatic stage presence, and messages of body positivity and self-love. She rose to mainstream fame with hits like \"Truth Hurts\" and \"Good as Hell,\" and is known for her energetic performances and flute playing.",
+        "image": {
+          "url": "https://images.qloo.com/i/2D1676A1-EC6D-482C-A778-4B2BAAD2D92E-420x-auto.jpg"
+        }
+      }
+    }
+  ],
+  "result_count": 5,
+  "provenance": {
+    "source": "Qloo API",
+    "endpoint": "/v2/insights",
+    "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/v2/insights",
+        "query": {
+          "filter.type": "urn:entity:artist",
+          "take": 5,
+          "signal.interests.tags": [
+            "urn:tag:amenity:qloo:yoga"
+          ],
+          "operator.signal.interests.tags": "intersection",
+          "signal.location.query": "Denver, CO",
+          "feature.explainability": true
+        }
+      }
+    ],
+    "transport": "direct"
+  },
+  "query_intent": {
+    "schema_version": "1.0-preview.1",
+    "source_contract_version": "1.0.0",
+    "operation": "recommend",
+    "job": "recommend",
+    "signals": {
+      "tags": [
+        "urn:tag:amenity:qloo:yoga"
+      ],
+      "location": "Denver, CO"
+    },
+    "filters": {},
+    "operators": {
+      "signalTags": "intersection"
+    },
+    "output": {
+      "limit": 5,
+      "explain": true
+    },
+    "assumptions": [
+      "explain=true"
+    ],
+    "unresolved": [],
+    "target": {
+      "type": "artist"
+    }
+  },
+  "execution": {
+    "transport": "direct",
+    "transport_name": "Qloo API",
+    "correlation_id": "exec-02abf963-02b8-4663-bace-3c07f0f38d80",
+    "duration_ms": 1793
+  }
+}

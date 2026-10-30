@@ -87,7 +87,7 @@ footer{padding:24px clamp(16px,4vw,48px);border-top:1px solid var(--line);font-s
       <label>Business name <input name="business" required maxlength="80" placeholder="Rosa's Taqueria"></label>
       <label>What you sell, in a word or two <input name="concept" required maxlength="80" placeholder="tacos"></label>
       <label>City <input name="city" required maxlength="80" placeholder="Austin, TX"></label>
-      <label>Audience <small>(optional, e.g. millennials)</small><input name="audience" maxlength="80"></label>
+      <label>Audience <small>(optional, age/gender, e.g. millennials, women 25-34)</small><input name="audience" maxlength="80"></label>
       <div class="row"><button id="go">Scout my town</button><small>Live Qloo calls, about 5 s</small></div>
     </form>
     <div class="cases">
@@ -165,7 +165,7 @@ function render({ result: r, mode }) {
   }
   const sec = (title, sub, body, src, cls = '') => $('section', { className: `reveal ${cls}` }, $('h3', {}, title, $('b', {}, sub)), body, $('div', { className: 'src' }, corr(src)));
   const grid = $('div', { className: 'grid' },
-    sec('1. Partners', 'Call these for cross-promos and co-hosted nights', r.partners.length ? list(r.partners, (e) => e.properties?.address) : $('p', {}, 'No partner returned for this city.'), r.sources.partners),
+    sec('1. Partners', 'Call these for cross-promos and co-hosted nights', $('div', {}, r.audienceNote ? $('p', { className: 'note' }, r.audienceNote) : '', r.partners.length ? list(r.partners, (e) => e.properties?.address) : $('p', {}, 'No partner returned for this city.')), r.sources.partners),
     sec('2. Culture hooks', 'Themes for events, playlists and posts', list(r.culture, () => ''), r.sources.culture),
     sec('3. Where to put flyers', `Where the top partner's audience concentrates`, r.areas.length ? mapOf(r.areas) : $('p', {}, `No area signal returned${r.areasError ? `: ${r.areasError}` : '.'}`), r.sources.areas, 'wide'),
     planOf(r),

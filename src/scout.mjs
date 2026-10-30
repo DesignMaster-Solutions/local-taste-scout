@@ -63,9 +63,18 @@ export async function scout({ business, concept, city, audience }, run) {
   if (!choice.tag) return { business, city, choice, trace, partners: [], culture: [], areas: [], status: 'needs_input' };
   const tagRef = choice.tag.id ?? choice.tag.name;
 
-  const partnersRes = await step('Venues nearby that share the same taste audience (partner candidates)', 'recommend', {
-    target_type: 'place', signal_tags: [tagRef], filter_location: city, ...(audience ? { demographic: audience, signal_location: city } : {}), explain: true, limit: 8,
+  const partnersWhy = 'Venues nearby that share the same taste audience (partner candidates)';
+  // Key order matters: recorded fixtures are keyed by the JSON of the input.
+  const partnersInput = (a) => ({
+    target_type: 'place', signal_tags: [tagRef], filter_location: city, ...(a ? { demographic: a, signal_location: city } : {}), explain: true, limit: 8,
   });
+  let partnersRes = await step(partnersWhy, 'recommend', partnersInput(audience));
+  // Qloo only maps age/gender phrases ("students" is needs_input): keep the brief and say the audience was dropped.
+  let audienceNote = null;
+  if (audience && partnersRes?.status === 'needs_input') {
+    audienceNote = `${partnersRes.summary ?? `Qloo could not use the audience "${audience}".`} Partners below ignore the audience.`;
+    partnersRes = await step(`${partnersWhy}, without the unmapped audience`, 'recommend', partnersInput());
+  }
   // Direct competitors carry the same tag; partners are adjacent, not identical.
   const partners = items(partnersRes).filter((p) => !words(p.name).some((w) => words(business).includes(w) && w.length > 3));
 
@@ -96,7 +105,7 @@ export async function scout({ business, concept, city, audience }, run) {
     business, city, concept, choice, trace, status: 'ok',
     partners: partners.slice(0, 5), culture: items(cultureRes).slice(0, 5), areas: areas.slice(0, 5),
     sources: { partners: cite(partnersRes), culture: cite(cultureRes), areas: areasRes ? cite(areasRes) : null },
-    areasError: areas.length ? null : areasError,
+    areasError: areas.length ? null : areasError, audienceNote,
   };
 }
 
@@ -115,7 +124,7 @@ export function toBrief(r) {
   out.push(`**Concept resolved:** ${r.choice.tag ? `${r.choice.tag.name} (\`${r.choice.tag.id ?? 'n/a'}\`)` : 'none'}. ${r.choice.reason}`);
   if (r.choice.alternatives?.length) out.push(`Other candidates considered: ${r.choice.alternatives.join(', ')}.`);
   if (r.status !== 'ok') return [...out, '', 'Refine the concept and run again; no recommendation was made from an uncertain tag.'].join('\n');
-  out.push('', '## 1. Partner candidates (cross-promotion, bundles, co-hosted nights)', ...r.partners.map(line), src(r.sources.partners));
+  out.push('', '## 1. Partner candidates (cross-promotion, bundles, co-hosted nights)', ...(r.audienceNote ? [`> ${r.audienceNote}`] : []), ...r.partners.map(line), src(r.sources.partners));
   out.push('', '## 2. Culture hooks for events and content', ...r.culture.map(line), src(r.sources.culture));
   out.push('', '## 3. Areas to focus flyers and local ads', ...(r.areas.length ? r.areas.map(area) : [`- No area signal returned${r.areasError ? ` (${r.areasError})` : ''}.`]), src(r.sources.areas));
   out.push(...planSection(r.plan));

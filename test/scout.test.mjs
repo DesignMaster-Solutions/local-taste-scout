@@ -86,6 +86,18 @@ test('an audience also sends signal_location (Qloo requires it for demographic s
   assert.equal(calls[1].input.signal_location, 'Denver, CO');
 });
 
+test('an audience Qloo cannot map retries partners without it and says why', async () => {
+  const { run: base, calls } = fakeRun();
+  const run = async (op, input) => (input.demographic
+    ? (calls.push({ op, input }), { operation: op, status: 'needs_input', summary: 'Could not map demographic "students".', results: [] })
+    : base(op, input));
+  const r = await scout({ business: 'Flow Yoga', concept: 'tacos', city: 'Austin, TX', audience: 'students' }, run);
+  assert.equal(r.partners.length, 3);
+  assert.match(r.audienceNote, /Could not map demographic "students"/);
+  assert.equal(calls.filter((c) => c.op === 'recommend' && c.input.target_type === 'place').length, 2);
+  assert.match(toBrief(r), /Could not map demographic/);
+});
+
 test('scout stops with needs_input when no tag resolves', async () => {
   const r = await scout({ business: 'X', concept: 'zzz', city: 'Austin, TX' }, async (op) => env(op, []));
   assert.equal(r.status, 'needs_input');
